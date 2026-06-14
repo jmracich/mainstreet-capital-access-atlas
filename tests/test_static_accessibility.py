@@ -1,5 +1,6 @@
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import unquote, urlparse
 
 import pytest
 
@@ -83,6 +84,18 @@ def _representative_pages() -> list[Path]:
     return pages
 
 
+def _social_image_exists(root: Path, page: Path, value: str) -> bool:
+    parsed = urlparse(value)
+    if parsed.scheme or parsed.netloc:
+        path = unquote(parsed.path.lstrip("/"))
+        marker = "static/"
+        if marker not in path:
+            return False
+        return (root / path[path.index(marker) :]).exists()
+
+    return (page.parent / unquote(value)).resolve().exists()
+
+
 def test_representative_pages_have_accessible_landmarks_and_metadata():
     root = Path("site/dist")
     if not root.exists():
@@ -119,7 +132,7 @@ def test_representative_pages_have_accessible_landmarks_and_metadata():
             failures.append(f"{page}: missing Twitter image metadata")
         if parser.og_image != parser.twitter_image:
             failures.append(f"{page}: social image metadata differs between Open Graph and Twitter")
-        if parser.og_image and not (page.parent / parser.og_image).resolve().exists():
+        if parser.og_image and not _social_image_exists(root, page, parser.og_image):
             failures.append(f"{page}: social image does not resolve")
         if parser.skip_link_target != "main" or "main" not in parser.ids:
             failures.append(f"{page}: skip link does not target main")
