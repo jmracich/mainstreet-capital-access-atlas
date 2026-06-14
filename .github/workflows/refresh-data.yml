@@ -1,0 +1,46 @@
+name: Refresh public data
+
+on:
+  schedule:
+    - cron: "17 9 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install
+        run: python -m pip install -e ".[dev]"
+      - name: Lint
+        run: python -m ruff check .
+      - name: Run tests
+        run: python -m pytest
+      - name: Refresh public data and generated site
+        run: python -m mainstreet_atlas.cli all --refresh
+        env:
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+          HUD_API_TOKEN: ${{ secrets.HUD_API_TOKEN }}
+      - name: Verify refreshed outputs
+        run: python -m pytest
+      - name: Upload generated site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-site
+          path: |
+            data/public
+            site/dist
+      - name: Commit generated public data if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f data/public site/dist
+          git diff --cached --quiet || git commit -m "Refresh generated public data"
+          git push

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Accessibility | {{ site_title }}{% endblock %}
+{% block description %}Accessibility statement and feedback guidance for Main Street Capital Access Atlas.{% endblock %}
+
+{% block content %}
+<section class="page-hero compact">
+  <div class="container readable">
+    <p class="eyebrow">Accessibility</p>
+    <h1>Accessibility is part of the project quality bar.</h1>
+    <p>Main Street Capital Access Atlas is intended for public-interest use by community partners with different devices, contexts, and access needs.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container two-column">
+    <div class="section-heading">
+      <p class="eyebrow">Current commitments</p>
+      <h2>Designed to remain usable without special access</h2>
+      <p>The default site is static, public, and free to host. It should not require accounts, private data, paid services, or tracking scripts to read the atlas.</p>
+    </div>
+    <div class="guidance-grid">
+      <article class="card">
+        <h3>Semantic structure</h3>
+        <p>Pages use landmarks, headings, lists, tables, links, skip navigation, and page metadata to support scanning and assistive technology.</p>
+      </article>
+      <article class="card">
+        <h3>Keyboard support</h3>
+        <p>Navigation controls include visible focus states, mobile menu ARIA state, and Escape-key close behavior.</p>
+      </article>
+      <article class="card">
+        <h3>Non-map alternatives</h3>
+        <p>The map is paired with county search, table links, downloadable CSV files, generated briefs, and fallback content.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section muted">
+  <div class="container readable">
+    <div class="section-heading">
+      <p class="eyebrow">Known constraints</p>
+      <h2>Dense public data still needs careful presentation</h2>
+      <p>County tables, map interactions, and metric-heavy brief pages can be difficult to interpret with assistive technology if copy, labels, or reading order drift. Accessibility improvements are welcome, especially for table semantics, map alternatives, keyboard flow, and plain-language summaries.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container two-column">
+    <div class="section-heading">
+      <p class="eyebrow">Feedback</p>
+      <h2>Report an accessibility issue</h2>
+      <p>Accessibility reports should include the page URL or generated file path, browser or device, assistive technology when relevant, expected behavior, and observed behavior.</p>
+    </div>
+    <div class="callout-band">
+      <h3>Protect privacy</h3>
+      <p>Do not include private, sensitive, or personally identifiable information in public issues. For sensitive data concerns, follow the security policy.</p>
+      <a class="text-link" href="{{ asset_path }}contribute.html">Open contribution guidance</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

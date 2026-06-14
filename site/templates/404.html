@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Page not found | {{ site_title }}{% endblock %}
+{% block description %}Find county briefs, methodology, limitations, sources, and contribution paths for Main Street Capital Access Atlas.{% endblock %}
+
+{% block content %}
+<section class="page-hero compact">
+  <div class="container readable">
+    <p class="eyebrow">Page not found</p>
+    <h1>Let's get you back to the atlas.</h1>
+    <p>The page may have moved, or the link may point to a county brief that is not available in this static build.</p>
+    <div class="actions">
+      <a class="button primary" href="{{ asset_path }}index.html#explore">Explore counties</a>
+      <a class="button secondary" href="{{ asset_path }}sources.html">Review sources</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container preview-grid">
+    <article class="card preview-card">
+      <p class="eyebrow">Start here</p>
+      <h2>Use the county search</h2>
+      <p>Open the homepage to search county and county-equivalent briefs by county name, state abbreviation, or full state name.</p>
+      <a class="text-link" href="{{ asset_path }}index.html#explore">Open county search</a>
+    </article>
+    <article class="card preview-card caution-card">
+      <p class="eyebrow">Read carefully</p>
+      <h2>Understand the limitations</h2>
+      <p>The atlas is a public-data conversation starter. It is not a credit model, underwriting tool, or final answer about any place.</p>
+      <a class="text-link" href="{{ asset_path }}limitations.html">Open limitations</a>
+    </article>
+  </div>
+</section>
+{% endblock %}

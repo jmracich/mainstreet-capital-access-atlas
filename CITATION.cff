@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this project, please cite the software project and review the source manifest for underlying public data attribution."
+title: "Main Street Capital Access Atlas"
+type: software
+authors:
+  - name: "Main Street Capital Access Atlas contributors"
+version: "0.1.0"
+date-released: "2026-06-11"
+license: "MIT"
+abstract: "An open-source static public-data platform that generates county-level Main Street Opportunity Briefs for local verification, small-business support conversations, and source-transparent civic analysis."
+keywords:
+  - civic-tech
+  - public-data
+  - small-business
+  - static-site
+  - county-data

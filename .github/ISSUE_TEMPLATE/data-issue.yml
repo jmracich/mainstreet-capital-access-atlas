@@ -1,0 +1,60 @@
+name: Data issue
+description: Report a possible problem in generated county data or source handling.
+title: "Data issue: "
+labels: ["data-quality"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve data quality. Please use public, non-sensitive sources only. Do not include private business, borrower, customer, or household-level data.
+  - type: input
+    id: county_fips
+    attributes:
+      label: County FIPS
+      description: Five-digit county FIPS if the issue is county-specific.
+      placeholder: "17031"
+    validations:
+      required: false
+  - type: input
+    id: county_name
+    attributes:
+      label: County and state
+      placeholder: "Cook County, IL"
+    validations:
+      required: false
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed value or behavior
+      description: What does the atlas currently show?
+      placeholder: "The county brief shows..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected value or behavior
+      description: What should it show instead, and why?
+    validations:
+      required: true
+  - type: input
+    id: source_url
+    attributes:
+      label: Public source URL
+      description: Link to the official/public source supporting the correction.
+    validations:
+      required: true
+  - type: input
+    id: source_vintage
+    attributes:
+      label: Source vintage or release date
+      placeholder: "2024 annual file, released January 2026"
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes on limitations
+      description: Include relevant caveats, suppression, margins of error, or source definitions.
+    validations:
+      required: false

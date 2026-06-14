@@ -1,0 +1,33 @@
+name: Methodology feedback
+description: Suggest a scoring, normalization, weighting, or language improvement.
+title: "Methodology: "
+labels: ["methodology"]
+body:
+  - type: textarea
+    id: current_behavior
+    attributes:
+      label: Current behavior
+      description: What does the current methodology do?
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_change
+    attributes:
+      label: Proposed change
+      description: Describe the calculation, language, or documentation change.
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale
+      description: Why would this make the atlas more transparent, careful, or useful?
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks and safeguards
+      description: How could this be misread, and what language or tests should guard against that?
+    validations:
+      required: true

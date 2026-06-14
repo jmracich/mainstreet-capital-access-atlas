@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mainstreet-capital-access-atlas"
+version = "0.1.0"
+description = "Open-source public-data briefs for local small-business support conversations."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Main Street Capital Access Atlas contributors" }]
+keywords = ["civic-tech", "public-data", "small-business", "static-site", "open-source"]
+dependencies = [
+  "jinja2>=3.1",
+  "numpy>=1.26",
+  "pandas>=2.1",
+  "openpyxl>=3.1",
+  "pydantic>=2.6",
+  "pyshp>=2.3",
+  "requests>=2.31",
+  "xlrd>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.6",
+]
+
+[project.scripts]
+mainstreet-atlas = "mainstreet_atlas.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]

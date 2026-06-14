@@ -1,0 +1,54 @@
+name: Data source request
+description: Suggest a new public data source or adapter.
+title: "Source request: "
+labels: ["data-source", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Suggested sources must be public, free to access, reproducible, and safe for a static open-source project.
+  - type: input
+    id: dataset_name
+    attributes:
+      label: Dataset name
+    validations:
+      required: true
+  - type: input
+    id: publisher
+    attributes:
+      label: Publisher
+      placeholder: "Federal agency, state agency, nonprofit, university, etc."
+    validations:
+      required: true
+  - type: input
+    id: access_url
+    attributes:
+      label: Public access URL
+    validations:
+      required: true
+  - type: dropdown
+    id: access_type
+    attributes:
+      label: Access type
+      options:
+        - Direct file download
+        - Public API without secrets
+        - Public API with optional token
+        - Manual import only
+        - Unsure
+    validations:
+      required: true
+  - type: textarea
+    id: useful_fields
+    attributes:
+      label: Useful fields
+      description: Which county-level fields would this add, and how would they improve local verification?
+    validations:
+      required: true
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Known limitations
+      description: Coverage gaps, lag, suppression, licensing, geography mismatch, or source definitions.
+    validations:
+      required: true

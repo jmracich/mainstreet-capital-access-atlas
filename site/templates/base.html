@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% set page_title = self.title()|striptags|trim %}
+    {% set page_description = self.description()|striptags|trim %}
+    {% set social_image = social_image_url if social_image_url else asset_path ~ "static/img/social-preview.png" %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{ site_title }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}Open-source public-data briefs for local small-business support conversations.{% endblock %}">
+    {% if canonical_url %}
+    <link rel="canonical" href="{{ canonical_url }}">
+    {% endif %}
+    <meta property="og:site_name" content="{{ site_title }}">
+    <meta property="og:title" content="{{ page_title }}">
+    <meta property="og:description" content="{{ page_description }}">
+    <meta property="og:type" content="website">
+    {% if canonical_url %}
+    <meta property="og:url" content="{{ canonical_url }}">
+    {% endif %}
+    <meta property="og:image" content="{{ social_image }}">
+    <meta property="og:image:alt" content="Rendered preview of the Main Street Capital Access Atlas homepage, including the county support map, score guide, and county search panel.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page_title }}">
+    <meta name="twitter:description" content="{{ page_description }}">
+    <meta name="twitter:image" content="{{ social_image }}">
+    <meta name="theme-color" content="#276c6f">
+    <link rel="icon" href="{{ asset_path }}static/img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="{{ asset_path }}static/css/styles.css?v={{ css_version }}">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="{{ asset_path }}index.html">
+          <span>Main Street Capital Access Atlas</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+        <div class="nav-links" id="nav-links">
+          <a class="{{ 'active' if active == 'home' else '' }}" {% if active == 'home' %}aria-current="page"{% endif %} href="{{ asset_path }}index.html">Home</a>
+          <a href="{{ asset_path }}index.html#explore">Explore</a>
+          <a class="{{ 'active' if active == 'illinois' else '' }}" {% if active == 'illinois' %}aria-current="page"{% endif %} href="{{ asset_path }}illinois.html">Illinois</a>
+          <a class="{{ 'active' if active == 'methodology' else '' }}" {% if active == 'methodology' %}aria-current="page"{% endif %} href="{{ asset_path }}methodology.html">Methodology</a>
+          <a class="{{ 'active' if active == 'limitations' else '' }}" {% if active == 'limitations' %}aria-current="page"{% endif %} href="{{ asset_path }}limitations.html">Limitations</a>
+          <a class="{{ 'active' if active == 'sources' else '' }}" {% if active == 'sources' %}aria-current="page"{% endif %} href="{{ asset_path }}sources.html">Sources</a>
+          <a class="{{ 'active' if active == 'contribute' else '' }}" {% if active == 'contribute' %}aria-current="page"{% endif %} href="{{ asset_path }}contribute.html">Contribute</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Main Street Capital Access Atlas</strong>
+        <p>Public data to start better conversations about small-business support. Built independently; no private data.</p>
+        <p class="footer-disclaimer">This project is built independently using public data. It is not affiliated with, endorsed by, or sponsored by any financial institution, government agency, or data publisher.</p>
+      </div>
+      <div class="footer-links">
+        <a href="{{ asset_path }}contribute.html">Contribute</a>
+        <a href="{{ asset_path }}methodology.html">Methodology</a>
+        <a href="{{ asset_path }}limitations.html">Limitations</a>
+        <a href="{{ asset_path }}sources.html">Sources</a>
+        <a href="{{ asset_path }}accessibility.html">Accessibility</a>
+        <a href="{{ asset_path }}assets/data/data_dictionary.csv">Data dictionary</a>
+        <a href="{{ asset_path }}assets/data/source_manifest.json">Source manifest</a>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="{{ asset_path }}static/js/app.js?v={{ js_version }}"></script>
+  </body>
+</html>

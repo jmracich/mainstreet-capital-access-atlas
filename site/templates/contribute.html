@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Contribute | {{ site_title }}{% endblock %}
+{% block description %}How community partners and open-source contributors can improve the atlas.{% endblock %}
+
+{% block content %}
+<section class="page-hero compact">
+  <div class="container readable">
+    <p class="eyebrow">Open-source collaboration</p>
+    <h1>Contribute</h1>
+    <p>Help improve data quality, local context, accessibility, documentation, and state spotlights. The most useful contributions make the atlas more careful and easier to verify.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contribute-grid">
+      <article>
+        <h2>Report a data issue</h2>
+        <p>Share the county FIPS, affected field, observed value, expected value, and public source link.</p>
+      </article>
+      <article>
+        <h2>Add local resource data</h2>
+        <p>Contribute CDFI, chamber, SBDC, SCORE, library, community college, or local partner resource lists with clear provenance.</p>
+      </article>
+      <article>
+        <h2>Suggest methodology improvements</h2>
+        <p>Propose better indicators, source handling, missing-data treatment, or state-specific context with supporting evidence.</p>
+      </article>
+      <article>
+        <h2>Add a state spotlight</h2>
+        <p>Use the Illinois page as a model for a careful, locally relevant state view that explains why counties are featured.</p>
+      </article>
+      <article>
+        <h2>Improve county brief language</h2>
+        <p>Help keep generated text humble, non-stigmatizing, and clear about what public data can and cannot show.</p>
+      </article>
+      <article>
+        <h2>Run the project locally</h2>
+        <p>Install the package, run the public-data pipeline, execute tests, and preview the static site before opening a contribution.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section muted">
+  <div class="container readable callout-band">
+    <h2>Contribution principle</h2>
+    <p>This project uses public data to start better conversations. It does not replace local knowledge. Contributions should make that principle clearer, not louder.</p>
+  </div>
+</section>
+{% endblock %}

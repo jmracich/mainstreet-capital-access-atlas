@@ -1,0 +1,60 @@
+name: Accessibility issue
+description: Report an accessibility barrier in the static site, generated pages, documentation, or data downloads.
+title: "Accessibility: "
+labels: ["accessibility"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping make the atlas more usable. Do not include private, sensitive, or personally identifiable information in public issues.
+  - type: input
+    id: page_or_file
+    attributes:
+      label: Page URL or file path
+      description: Link to the page or name the generated/source file where the issue appears.
+      placeholder: "site/dist/index.html or https://example.org/main-street-capital-access-atlas/"
+    validations:
+      required: true
+  - type: dropdown
+    id: issue_type
+    attributes:
+      label: Accessibility area
+      options:
+        - Keyboard navigation or focus
+        - Screen reader or semantic structure
+        - Color contrast or visual readability
+        - Map, chart, or non-map alternative
+        - Table, CSV, or data-download usability
+        - Mobile or responsive layout
+        - Plain-language content
+        - Other accessibility barrier
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behavior
+      description: What happened, and what made the page, data, or control difficult to use?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What would make this easier to access or understand?
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser, device, viewport, operating system, assistive technology, or keyboard-only workflow if relevant.
+    validations:
+      required: false
+  - type: textarea
+    id: possible_fix
+    attributes:
+      label: Possible fix or reference
+      description: Optional suggested fix, guideline, screenshot, or short recording. Do not include sensitive information.
+    validations:
+      required: false

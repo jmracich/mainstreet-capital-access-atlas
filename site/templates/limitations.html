@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Limitations | {{ site_title }}{% endblock %}
+{% block description %}Important limitations for interpreting public-data county signals.{% endblock %}
+
+{% block content %}
+<section class="page-hero compact">
+  <div class="container readable">
+    <p class="eyebrow">Read first</p>
+    <h1>Limitations</h1>
+    <p>This project is intentionally careful. Public data can help focus questions, but it cannot replace local knowledge or determine decisions.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="limitation-list">
+      <article><h2>This is not a credit model.</h2><p>The signal is not designed for borrower, business, or loan-level decisions.</p></article>
+      <article><h2>This is not an underwriting tool.</h2><p>It should not be used to approve, deny, price, or prioritize any individual financial product.</p></article>
+      <article><h2>This does not measure borrower creditworthiness.</h2><p>County-level public data cannot evaluate individual businesses, owners, plans, or repayment capacity.</p></article>
+      <article><h2>This does not direct lending or investment.</h2><p>It does not determine where banks, CDFIs, governments, or nonprofits should lend, invest, or act.</p></article>
+      <article><h2>Public data is lagged and incomplete.</h2><p>Sources can be suppressed, revised, delayed, and uneven across geographies.</p></article>
+      <article><h2>Data availability varies.</h2><p>Optional, manual, and source-limited datasets may be unavailable in the current build.</p></article>
+      <article><h2>County averages hide local variation.</h2><p>Neighborhood-level conditions, business corridors, and rural access patterns can differ sharply within one county.</p></article>
+      <article><h2>Local knowledge matters.</h2><p>Residents, business owners, and community organizations understand context that dashboards cannot capture.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section muted">
+  <div class="container readable callout-band">
+    <h2>Use this as a conversation starter, not a final answer.</h2>
+    <p>These public data signals may help identify places where local verification, partnership, coaching, capital-navigation support, or additional community support could be useful. They should not be the final word.</p>
+  </div>
+</section>
+{% endblock %}

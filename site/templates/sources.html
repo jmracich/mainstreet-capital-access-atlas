@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Sources | {{ site_title }}{% endblock %}
+{% block description %}Data source manifest for Main Street Capital Access Atlas.{% endblock %}
+
+{% block content %}
+<section class="page-hero compact">
+  <div class="container readable">
+    <p class="eyebrow">Source transparency</p>
+    <h1>Sources</h1>
+    <p>Every source is tracked with access method, fetch status, coverage, and limitations. Optional and manual sources are displayed even when absent.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="download-panel">
+      <div>
+        <p class="eyebrow">Public export</p>
+        <h2>Download the dataset and dictionary</h2>
+        <p>Each build publishes county data, map data, source status, checksums, and a generated data dictionary so public users can inspect the fields without reading the pipeline code.</p>
+      </div>
+      <div class="download-links" aria-label="Public data downloads">
+        <a class="button primary" href="assets/data/counties.csv">County CSV</a>
+        <a class="button secondary" href="assets/data/data_dictionary.csv">Data dictionary CSV</a>
+        <a class="button secondary" href="assets/data/source_manifest.json">Source manifest JSON</a>
+        <a class="button secondary" href="assets/data/data_package_manifest.json">Data package manifest</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section muted">
+  <div class="container two-column">
+    <div class="section-heading">
+      <p class="eyebrow">Reuse responsibly</p>
+      <h2>Attribution and citation</h2>
+      <p>Cite this open-source project separately from the underlying public datasets. The source manifest lists dataset names, publishers, URLs, access methods, limitations, and current build status.</p>
+    </div>
+    <div class="guidance-grid">
+      <article class="card">
+        <h3>Project citation</h3>
+        <p>Use the repository citation file when available, and include the generated data package date when publishing analysis from county exports.</p>
+      </article>
+      <article class="card">
+        <h3>Source attribution</h3>
+        <p>Preserve attribution for Census, FDIC, and any manual public sources added to the build. Source publishers do not endorse project interpretations.</p>
+      </article>
+      <article class="card">
+        <h3>Map attribution</h3>
+        <p>The interactive map uses Leaflet and OpenStreetMap tiles. Keep map attribution visible when reusing screenshots or map views.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Open-data inventory</p>
+      <h2>Source manifest</h2>
+      <p>Statuses reflect the current build. Manual and optional-token sources are supported without blocking the default public-data build.</p>
+    </div>
+    <div class="source-grid">
+      {% for source in source_manifest %}
+      <article class="source-card">
+        <div class="source-card-header">
+          <h2>{{ source.dataset_name }}</h2>
+          <span class="status status-{{ source.status }}">{{ source.status.replace('_', ' ') }}</span>
+        </div>
+        <dl>
+          <dt>Publisher</dt>
+          <dd>{{ source.publisher }}</dd>
+          <dt>Use in the atlas</dt>
+          <dd>{{ source.coverage }}</dd>
+          <dt>Access method</dt>
+          <dd>{{ source.access_method }}</dd>
+          <dt>Last fetched or registered</dt>
+          <dd>{{ source.last_fetched if source.last_fetched else "Not fetched in this build" }}</dd>
+          <dt>Known limitations</dt>
+          <dd>{{ source.known_limitations }}</dd>
+        </dl>
+        {% if source.url %}
+        <a class="text-link" href="{{ source.url }}">Open public source</a>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

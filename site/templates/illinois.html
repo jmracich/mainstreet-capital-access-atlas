@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block title %}Illinois Spotlight | {{ site_title }}{% endblock %}
+{% block description %}Illinois county spotlight for the Main Street Capital Access Atlas launch focus.{% endblock %}
+
+{% block content %}
+<section class="page-hero compact">
+  <div class="container readable">
+    <p class="eyebrow">Launch focus</p>
+    <h1>Illinois county spotlight</h1>
+    <p>Illinois is the first curated state view, showing major population centers, university communities, regional anchors, suburban counties, and smaller counties in one public-data frame.</p>
+    <p class="caution">Use these examples as starting points for local verification, not as a ranking of places or a substitute for local knowledge.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading split-heading">
+      <div>
+        <p class="eyebrow">Featured briefs</p>
+        <h2>County examples by local context</h2>
+      </div>
+      <p>These groupings make the launch focus easier to scan while keeping data quality, business landscape, and branch context visible.</p>
+    </div>
+
+    <div class="spotlight-groups">
+      <section class="spotlight-group">
+        <div class="group-heading">
+          <h3>Major metro</h3>
+          <p>Large population center with many overlapping public-data signals.</p>
+        </div>
+        <div class="county-grid compact-grid">
+          {% for county in illinois_focus if county.fips in ["17031"] %}
+          {% include "partials/county_card.html" %}
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="spotlight-group">
+        <div class="group-heading">
+          <h3>Suburban counties</h3>
+          <p>Large suburban economies where county averages may hide local variation.</p>
+        </div>
+        <div class="county-grid compact-grid">
+          {% for county in illinois_focus if county.fips in ["17043", "17097"] %}
+          {% include "partials/county_card.html" %}
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="spotlight-group">
+        <div class="group-heading">
+          <h3>Regional centers</h3>
+          <p>University, government, industrial, and regional-service counties for comparison.</p>
+        </div>
+        <div class="county-grid compact-grid">
+          {% for county in illinois_focus if county.fips in ["17143", "17113", "17019", "17167", "17201", "17163"] %}
+          {% include "partials/county_card.html" %}
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="spotlight-group">
+        <div class="group-heading">
+          <h3>Rural and smaller counties</h3>
+          <p>Smaller county examples where source coverage and local context are especially important.</p>
+        </div>
+        <div class="county-grid compact-grid">
+          {% for county in illinois_focus if county.fips in ["17001", "17109", "17189"] %}
+          {% include "partials/county_card.html" %}
+          {% endfor %}
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="section muted">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Comparison table</p>
+      <h2>All Illinois counties</h2>
+      <p>Sorted by public-data Support Priority Signal, with data quality visible.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>County</th>
+            <th>Signal</th>
+            <th>Data quality</th>
+            <th>Establishments</th>
+            <th>Branches</th>
+            <th>Brief</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for county in illinois_counties %}
+          <tr>
+            <td>{{ county.county_name }}</td>
+            <td>{{ county.support_priority_signal|score }}</td>
+            <td><span class="grade grade-{{ county.data_quality_grade|lower }}">{{ county.data_quality_grade }}</span></td>
+            <td>{{ fmt_number(county.establishments) }}</td>
+            <td>{{ fmt_number(county.branch_count) }}</td>
+            <td><a href="{{ county.fips|county_url }}">Open</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Interpretation note: county-level public data can hide neighborhood-level variation. Use this table to identify questions, then verify with local partners.</p>
+  </div>
+</section>
+{% endblock %}

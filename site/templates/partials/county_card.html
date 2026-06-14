@@ -1,0 +1,7 @@
+<a class="county-card" href="{{ county.fips|county_url }}">
+  <span class="county-title">{{ county.county_name }}, {{ county.state_abbr }}</span>
+  <span class="score-pill">Signal {{ county.support_priority_signal|score }} | Quality {{ county.data_quality_grade }}</span>
+  <span class="county-meta">{{ fmt_number(county.establishments) }} establishments</span>
+  <span class="county-meta">{{ fmt_number(county.branch_count) }} branches | {{ fmt_number(county.branches_per_10k_residents, 1) }} per 10k residents</span>
+  <span class="county-meta">{{ fmt_pct(county.poverty_pct) }} poverty signal</span>
+</a>

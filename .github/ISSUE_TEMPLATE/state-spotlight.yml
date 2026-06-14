@@ -1,0 +1,33 @@
+name: State spotlight
+description: Propose or plan a new state spotlight.
+title: "State spotlight: "
+labels: ["state-spotlight", "documentation"]
+body:
+  - type: input
+    id: state
+    attributes:
+      label: State
+      placeholder: "Illinois"
+    validations:
+      required: true
+  - type: textarea
+    id: county_examples
+    attributes:
+      label: Suggested county examples
+      description: Include a mix of large, midsize, regional, suburban, and rural counties where appropriate.
+    validations:
+      required: true
+  - type: textarea
+    id: local_context
+    attributes:
+      label: Local context to verify
+      description: What should local partners verify before drawing conclusions?
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Additional public sources
+      description: Optional state-specific sources with public URLs and limitations.
+    validations:
+      required: false

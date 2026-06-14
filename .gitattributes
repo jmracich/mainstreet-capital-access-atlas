@@ -1,0 +1,13 @@
+# Mark reproducible generated outputs so GitHub diffs stay reviewable when refresh workflows force-add them.
+data/raw/** linguist-generated=true
+data/processed/** linguist-generated=true
+data/public/** linguist-generated=true
+site/dist/** linguist-generated=true
+
+# Keep source, docs, tests, templates, and workflow files reviewable.
+src/** linguist-generated=false
+tests/** linguist-generated=false
+docs/** linguist-generated=false
+site/templates/** linguist-generated=false
+site/static/** linguist-generated=false
+.github/** linguist-generated=false
