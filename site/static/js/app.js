@@ -131,33 +131,18 @@ function colorForScore(score) {
 function popupHtml(props) {
   const score = formatNumber(props.support_priority_signal, 1);
   const band = signalBand(props.support_priority_signal);
-  const establishments = formatNumber(props.establishments, 0);
-  const branches = formatNumber(props.branch_count, 0);
-  const branchRate = formatNumber(
-    props.branches_per_10k_residents || props.branches_per_1000_establishments,
-    1
-  );
   const craSignal = formatNumber(
     props.cra_small_business_loans || props.cra_loans_per_1000_establishments,
     1
   );
-  const stress = props.poverty_pct
-    ? `${formatNumber(props.poverty_pct, 1)}%`
-    : formatNumber(props.median_household_income, 0);
-  const housing = formatNumber(props.housing_cost_pressure, 1);
   const countyUrl = `counties/${String(props.fips).padStart(5, "0")}.html`;
   return `
     <span class="popup-title">${escapeHtml(props.county_name)}, ${escapeHtml(props.state_abbr)}</span>
-    <span class="popup-row"><span>Support signal</span><strong>${score}</strong></span>
-    <span class="popup-row"><span>Meaning</span><strong>${escapeHtml(band.label)}</strong></span>
-    <span class="popup-row"><span>Establishments</span><strong>${establishments}</strong></span>
-    <span class="popup-row"><span>Branches</span><strong>${branches}</strong></span>
-    <span class="popup-row"><span>Branch rate</span><strong>${branchRate}</strong></span>
+    <span class="popup-signal"><strong>${score}</strong><span>${escapeHtml(band.label)}</span></span>
     <span class="popup-row"><span>CRA signal</span><strong>${craSignal}</strong></span>
-    <span class="popup-row"><span>Stress context</span><strong>${stress}</strong></span>
-    <span class="popup-row"><span>Housing context</span><strong>${housing}</strong></span>
     <span class="popup-row"><span>Data quality</span><strong>${escapeHtml(props.data_quality_grade || "D")}</strong></span>
-    <p><a href="${countyUrl}">Open county brief</a></p>
+    <p class="popup-note">Open the brief for drivers, source coverage, and local verification questions.</p>
+    <p><a href="${countyUrl}">Open full brief</a></p>
   `;
 }
 
@@ -236,25 +221,40 @@ function renderSelectedCounty(props) {
   }
   const band = signalBand(props.support_priority_signal);
   const url = props.url || `counties/${String(props.fips).padStart(5, "0")}.html`;
+  const score = Number.isFinite(Number(props.support_priority_signal))
+    ? formatNumber(props.support_priority_signal, 1)
+    : "No score";
+  const branches = formatNumber(props.branch_count, 0);
   const branchRate = formatNumber(
     props.branches_per_10k_residents || props.branches_per_1000_establishments,
     1
   );
+  const stressLabel = props.poverty_pct ? "Poverty signal" : "Income context";
   const stress = props.poverty_pct
     ? `${formatNumber(props.poverty_pct, 1)}%`
     : formatNumber(props.median_household_income, 0);
   target.innerHTML = `
-    <p class="sidebar-title">Selected county</p>
-    <h3>${escapeHtml(props.county_name)}, ${escapeHtml(props.state_abbr)}</h3>
-    <p class="selected-interpretation"><strong>${escapeHtml(band.label)}</strong> ${escapeHtml(band.text)}</p>
+    <div class="selected-header">
+      <span class="stage-label">Selected county</span>
+      <h3>${escapeHtml(props.county_name)}, ${escapeHtml(props.state_abbr)}</h3>
+    </div>
+    <div class="selected-signal">
+      <span class="selected-score">${escapeHtml(score)}</span>
+      <span>
+        <span class="selected-band">${escapeHtml(band.label)}</span>
+        <span class="selected-signal-label">Public-data support signal</span>
+      </span>
+    </div>
+    <p class="selected-interpretation">${escapeHtml(band.text)}</p>
+    <p class="selected-section-title">Top metrics</p>
     <dl class="selected-metrics">
-      <div><dt>Support signal</dt><dd>${formatNumber(props.support_priority_signal, 1)}</dd></div>
       <div><dt>Data quality</dt><dd>${escapeHtml(props.data_quality_grade || "Unavailable")}</dd></div>
       <div><dt>Business establishments</dt><dd>${formatNumber(props.establishments, 0)}</dd></div>
-      <div><dt>Branch signal</dt><dd>${branchRate}</dd></div>
-      <div><dt>Stress context</dt><dd>${stress}</dd></div>
+      <div><dt>FDIC branches</dt><dd>${branches}</dd></div>
+      <div><dt>Branch rate</dt><dd>${branchRate}</dd></div>
+      <div><dt>${stressLabel}</dt><dd>${stress}</dd></div>
     </dl>
-    <a class="text-link" href="${escapeHtml(url)}">Open full county brief</a>
+    <a class="button primary selected-cta" href="${escapeHtml(url)}">Open full brief</a>
   `;
 }
 
@@ -271,27 +271,27 @@ function signalBand(value) {
     return {
       label: "High follow-up",
       short: "High",
-      text: "Several public signals overlap. Treat this as a prompt to review the county brief, check data quality, and prioritize local partner conversations.",
+      text: "Several public signals overlap, so use the brief to check data quality and prioritize local partner conversations.",
     };
   }
   if (number >= 60) {
     return {
       label: "Elevated",
       short: "Elevated",
-      text: "Public data suggests meaningful conditions to review. Compare the drivers before deciding whether follow-up is warranted.",
+      text: "Public data suggests meaningful conditions to review before deciding whether follow-up is warranted.",
     };
   }
   if (number >= 40) {
     return {
       label: "Watch",
       short: "Watch",
-      text: "Some signals are present, but the story is mixed. Use local knowledge before drawing conclusions.",
+      text: "Some signals are present, but the case is mixed and should be interpreted with local knowledge.",
     };
   }
   return {
     label: "Lower signal",
     short: "Lower",
-    text: "This build shows fewer overlapping public-data signals. Local need may still exist outside the available data.",
+    text: "This build shows fewer overlapping public-data signals, though local need may still exist outside available data.",
   };
 }
 
