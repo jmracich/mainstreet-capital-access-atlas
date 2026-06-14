@@ -49,6 +49,10 @@ Local partners often need to understand several signals at once: small-business 
 
 This project provides a transparent, reproducible starting point. It is designed to help banks, CDFIs, chambers, nonprofits, libraries, local governments, economic-development teams, student volunteers, and community partners ask better questions before acting.
 
+## A Personal Note
+
+I am passionate about this project because access to useful civic data should not depend on budget, technical capacity, or institutional reach. Open, readable public-data tools can help people see where support may be needed, prepare better local conversations, and connect small businesses with partners who can help them move forward.
+
 ## What It Does
 
 - Builds a national county-level public-data dataset when sources are available.
