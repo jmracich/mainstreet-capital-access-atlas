@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Methodology | Main Street Capital Access Atlas</title>
+    <meta name="description" content="Transparent methodology for the Small Business Support Priority Signal.">
+    
+    <meta property="og:site_name" content="Main Street Capital Access Atlas">
+    <meta property="og:title" content="Methodology | Main Street Capital Access Atlas">
+    <meta property="og:description" content="Transparent methodology for the Small Business Support Priority Signal.">
+    <meta property="og:type" content="website">
+    
+    <meta property="og:image" content="static/img/social-preview.png">
+    <meta property="og:image:alt" content="Rendered preview of the Main Street Capital Access Atlas homepage, including the county support map, score guide, and county search panel.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Methodology | Main Street Capital Access Atlas">
+    <meta name="twitter:description" content="Transparent methodology for the Small Business Support Priority Signal.">
+    <meta name="twitter:image" content="static/img/social-preview.png">
+    <meta name="theme-color" content="#276c6f">
+    <link rel="icon" href="static/img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="static/css/styles.css?v=c65dd5b55c6d">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="index.html">
+          <span>Main Street Capital Access Atlas</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+        <div class="nav-links" id="nav-links">
+          <a class=""  href="index.html">Home</a>
+          <a href="index.html#explore">Explore</a>
+          <a class=""  href="illinois.html">Illinois</a>
+          <a class="active" aria-current="page" href="methodology.html">Methodology</a>
+          <a class=""  href="limitations.html">Limitations</a>
+          <a class=""  href="sources.html">Sources</a>
+          <a class=""  href="contribute.html">Contribute</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      
+<section class="page-hero compact">
+  <div class="container readable">
+    <p class="eyebrow">Transparent scoring</p>
+    <h1>Methodology</h1>
+    <p>The Small Business Support Priority Signal is a cautious public-data signal from 0 to 100. It is designed to support local verification, not to make decisions for local partners.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container readable prose">
+    <section class="brief-section">
+      <h2>What the Support Priority Signal is</h2>
+      <p>It is a county-level public-data conversation starter. Higher values indicate where available public data suggests local verification, resource mapping, or capital-navigation conversations may be useful.</p>
+    </section>
+
+    <section class="brief-section caution-card">
+      <h2>What it is not</h2>
+      <p>It is not a credit model, underwriting tool, lending recommendation, or measure of community value. It should be interpreted alongside local knowledge and source limitations.</p>
+    </section>
+
+    <section class="brief-section">
+      <h2>Inputs and weights</h2>
+      <ul class="weighted-list">
+        <li><span>20%</span> Small-business importance signal, including density, scale, and small-establishment share</li>
+        <li><span>20%</span> Capital-access visibility gap</li>
+        <li><span>20%</span> Community economic stress</li>
+        <li><span>15%</span> Housing/cost pressure</li>
+        <li><span>15%</span> Local support ecosystem gap</li>
+        <li><span>10%</span> Data-quality gap / verification need</li>
+      </ul>
+    </section>
+
+    <section class="brief-section">
+      <h2>Normalization</h2>
+      <p>Indicators are converted to winsorized percentile scores from 0 to 100. Extreme values are clipped at the 5th and 95th percentiles before ranking. Directionality is explicit: lower branch density increases a visibility-gap signal, while higher rent burden increases a housing-pressure signal.</p>
+    </section>
+
+    <section class="brief-section">
+      <h2>Missing data</h2>
+      <p>If a component is missing, the final score uses available components and displays coverage. Missing official data is not filled with invented values. Optional and manual sources remain visible when unavailable.</p>
+    </section>
+
+    <section class="brief-section">
+      <h2>Data quality grades</h2>
+      <p>Grades summarize field completeness for the current build. Lower grades mean more local verification is needed before comparing signals or making program decisions.</p>
+    </section>
+  </div>
+</section>
+
+<section class="section muted">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Methodology flow</p>
+      <h2>From scattered public sources to cautious briefs</h2>
+    </div>
+    <div class="flow">
+      <div><span>1</span><strong>Source</strong><p>Fetch official files or register manual imports.</p></div>
+      <div><span>2</span><strong>Validate</strong><p>Standardize FIPS, fields, and source availability.</p></div>
+      <div><span>3</span><strong>Normalize</strong><p>Apply winsorized percentiles with directionality.</p></div>
+      <div><span>4</span><strong>Publish</strong><p>Generate static briefs with source notes and limitations.</p></div>
+    </div>
+  </div>
+</section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Main Street Capital Access Atlas</strong>
+        <p>Public data to start better conversations about small-business support. Built independently; no private data.</p>
+        <p class="footer-disclaimer">This project is built independently using public data. It is not affiliated with, endorsed by, or sponsored by any financial institution, government agency, or data publisher.</p>
+      </div>
+      <div class="footer-links">
+        <a href="contribute.html">Contribute</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="limitations.html">Limitations</a>
+        <a href="sources.html">Sources</a>
+        <a href="accessibility.html">Accessibility</a>
+        <a href="assets/data/data_dictionary.csv">Data dictionary</a>
+        <a href="assets/data/source_manifest.json">Source manifest</a>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="static/js/app.js?v=361eb349b55a"></script>
+  </body>
+</html>

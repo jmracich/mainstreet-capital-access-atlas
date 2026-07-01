@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Main Street Capital Access Atlas mark">
+  <rect width="64" height="64" rx="12" fill="#19323c"/>
+  <path d="M12 42h40v8H12z" fill="#d7a84f"/>
+  <path d="M16 34h8V18h16v16h8v8H16z" fill="#f7f5ef"/>
+  <path d="M28 34V22h8v12z" fill="#2f6f73"/>
+</svg>

@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main Street Capital Access Atlas</title>
+    <meta name="description" content="A free, open-source public-data platform for county-level Main Street Opportunity Briefs.">
+    
+    <meta property="og:site_name" content="Main Street Capital Access Atlas">
+    <meta property="og:title" content="Main Street Capital Access Atlas">
+    <meta property="og:description" content="A free, open-source public-data platform for county-level Main Street Opportunity Briefs.">
+    <meta property="og:type" content="website">
+    
+    <meta property="og:image" content="static/img/social-preview.png">
+    <meta property="og:image:alt" content="Rendered preview of the Main Street Capital Access Atlas homepage, including the county support map, score guide, and county search panel.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Main Street Capital Access Atlas">
+    <meta name="twitter:description" content="A free, open-source public-data platform for county-level Main Street Opportunity Briefs.">
+    <meta name="twitter:image" content="static/img/social-preview.png">
+    <meta name="theme-color" content="#276c6f">
+    <link rel="icon" href="static/img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="static/css/styles.css?v=c65dd5b55c6d">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="index.html">
+          <span>Main Street Capital Access Atlas</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+        <div class="nav-links" id="nav-links">
+          <a class="active" aria-current="page" href="index.html">Home</a>
+          <a href="index.html#explore">Explore</a>
+          <a class=""  href="illinois.html">Illinois</a>
+          <a class=""  href="methodology.html">Methodology</a>
+          <a class=""  href="limitations.html">Limitations</a>
+          <a class=""  href="sources.html">Sources</a>
+          <a class=""  href="contribute.html">Contribute</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      
+<section class="section explore-section" id="explore">
+  <div class="container">
+    <div class="workspace-header">
+      <div class="workspace-title">
+        <p class="eyebrow">County-level public data</p>
+        <h1>See where Main Street support may need attention</h1>
+        <p>The atlas turns public county data into a cautious 0-100 support signal. Use it to start local questions, not to rank communities or make credit decisions.</p>
+      </div>
+    </div>
+    <div class="signal-guide" aria-label="How to read the atlas">
+      <div>
+        <span>For</span>
+        <strong>Local civic, CDFI, chamber, philanthropy, and small-business support teams.</strong>
+      </div>
+      <div>
+        <span>80+ means</span>
+        <strong>High follow-up: several public signals point to possible unmet support needs.</strong>
+      </div>
+      <div>
+        <span>Use</span>
+        <strong>Open the county brief, check data quality, then verify with local partners.</strong>
+      </div>
+    </div>
+    <div class="score-primer" aria-label="Support signal interpretation">
+      <div class="score-primer-copy">
+        <span class="stage-label">How to read a score</span>
+        <p><strong>An 80 is not a grade.</strong> It means public data shows enough overlapping signals to justify local follow-up.</p>
+        <a class="text-link" href="methodology.html">Full scoring method</a>
+      </div>
+      <ol class="score-band-list">
+        <li aria-label="80 to 100: High follow-up. Prioritize partner conversations and inspect the brief."><strong>80-100</strong><span>High follow-up</span></li>
+        <li aria-label="60 to 79: Elevated. Compare drivers before deciding next steps."><strong>60-79</strong><span>Elevated</span></li>
+        <li aria-label="40 to 59: Watch. Some signals are present, but the case is mixed."><strong>40-59</strong><span>Watch</span></li>
+        <li aria-label="0 to 39: Lower signal in this build. Still use local knowledge."><strong>0-39</strong><span>Lower signal</span></li>
+      </ol>
+    </div>
+    <div class="map-shell">
+      <div class="map-stage">
+        <div class="map-toolbar" aria-label="Map reading key">
+          <div>
+            <span class="stage-label">Map view</span>
+            <h2>Support signal by county</h2>
+          </div>
+          <div class="map-scale" aria-label="Color scale from lower signal to higher signal">
+            <span>Lower</span>
+            <span class="scale-ramp" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i>
+            </span>
+            <span>Higher</span>
+          </div>
+        </div>
+        <div id="atlas-map" class="map" data-map-url="assets/data/county-map.geojson" aria-label="Interactive county choropleth map showing support signal by county" aria-describedby="map-alt-note"></div>
+        <p class="map-footnote" id="map-alt-note">Darker color means a stronger public-data support signal. The map is a starting point for local verification, not a verdict.</p>
+      </div>
+      <aside class="map-sidebar" aria-label="County search and map interpretation">
+        <div class="search-panel">
+          <p class="sidebar-title">Start with a county</p>
+          <label for="county-search">County search</label>
+          <input id="county-search" type="search" placeholder="County, state name, or abbreviation" autocomplete="off" data-search-url="assets/data/county-search.json">
+          <div id="county-search-results" class="search-results" aria-live="polite"></div>
+        </div>
+        <div id="selected-county" class="selected-county" aria-live="polite">
+          <p class="sidebar-title">Selected county</p>
+          <p class="quiet">No county selected. Click the map or search above to view the local signal summary.</p>
+        </div>
+        <p class="map-note">Prefer a table? Use the <a href="#county-table">county table</a>.</p>
+      </aside>
+    </div>
+    <noscript>
+      <div class="callout-band map-fallback">
+        <h3>Map alternative</h3>
+        <p>JavaScript is required for the interactive map. You can still use the county table below, open generated county briefs, or download the county CSV from the Sources page.</p>
+        <a class="text-link" href="#county-table">Skip to county table</a>
+      </div>
+    </noscript>
+  </div>
+</section>
+
+<section class="section" id="county-table">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">County table</p>
+      <h2>Highest public-data support signals in this build</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>County</th>
+            <th>Support signal</th>
+            <th>Data quality</th>
+            <th>Establishments</th>
+            <th>Branches</th>
+            <th>Brief</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>Toa Alta, PR</td>
+            <td>83.0</td>
+            <td><span class="grade grade-c">C</span></td>
+            <td>Unavailable</td>
+            <td>2</td>
+            <td><a href="counties/72135.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Barceloneta, PR</td>
+            <td>79.8</td>
+            <td><span class="grade grade-c">C</span></td>
+            <td>Unavailable</td>
+            <td>2</td>
+            <td><a href="counties/72017.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Coamo, PR</td>
+            <td>77.3</td>
+            <td><span class="grade grade-c">C</span></td>
+            <td>Unavailable</td>
+            <td>1</td>
+            <td><a href="counties/72043.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Arroyo, PR</td>
+            <td>76.6</td>
+            <td><span class="grade grade-c">C</span></td>
+            <td>Unavailable</td>
+            <td>1</td>
+            <td><a href="counties/72015.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Hopewell, VA</td>
+            <td>75.3</td>
+            <td><span class="grade grade-b">B</span></td>
+            <td>396</td>
+            <td>2</td>
+            <td><a href="counties/51670.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Norfolk, VA</td>
+            <td>75.3</td>
+            <td><span class="grade grade-b">B</span></td>
+            <td>5,398</td>
+            <td>28</td>
+            <td><a href="counties/51710.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Hormigueros, PR</td>
+            <td>75.0</td>
+            <td><span class="grade grade-c">C</span></td>
+            <td>Unavailable</td>
+            <td>1</td>
+            <td><a href="counties/72067.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Caguas, PR</td>
+            <td>73.8</td>
+            <td><span class="grade grade-c">C</span></td>
+            <td>Unavailable</td>
+            <td>13</td>
+            <td><a href="counties/72025.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Orocovis, PR</td>
+            <td>73.7</td>
+            <td><span class="grade grade-c">C</span></td>
+            <td>Unavailable</td>
+            <td>1</td>
+            <td><a href="counties/72107.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Ponce, PR</td>
+            <td>73.7</td>
+            <td><span class="grade grade-c">C</span></td>
+            <td>Unavailable</td>
+            <td>15</td>
+            <td><a href="counties/72113.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Bibb, GA</td>
+            <td>73.6</td>
+            <td><span class="grade grade-b">B</span></td>
+            <td>4,147</td>
+            <td>36</td>
+            <td><a href="counties/13021.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Kings, NY</td>
+            <td>73.6</td>
+            <td><span class="grade grade-b">B</span></td>
+            <td>62,317</td>
+            <td>333</td>
+            <td><a href="counties/36047.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Lares, PR</td>
+            <td>73.3</td>
+            <td><span class="grade grade-c">C</span></td>
+            <td>Unavailable</td>
+            <td>1</td>
+            <td><a href="counties/72081.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>San Juan, PR</td>
+            <td>73.1</td>
+            <td><span class="grade grade-c">C</span></td>
+            <td>Unavailable</td>
+            <td>61</td>
+            <td><a href="counties/72127.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Orleans, LA</td>
+            <td>72.9</td>
+            <td><span class="grade grade-b">B</span></td>
+            <td>10,027</td>
+            <td>80</td>
+            <td><a href="counties/22071.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Bayamón, PR</td>
+            <td>72.8</td>
+            <td><span class="grade grade-c">C</span></td>
+            <td>Unavailable</td>
+            <td>Unavailable</td>
+            <td><a href="counties/72021.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Adjuntas, PR</td>
+            <td>72.7</td>
+            <td><span class="grade grade-c">C</span></td>
+            <td>Unavailable</td>
+            <td>1</td>
+            <td><a href="counties/72001.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Washington, NC</td>
+            <td>72.6</td>
+            <td><span class="grade grade-b">B</span></td>
+            <td>221</td>
+            <td>1</td>
+            <td><a href="counties/37187.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Bronx, NY</td>
+            <td>72.3</td>
+            <td><span class="grade grade-b">B</span></td>
+            <td>18,674</td>
+            <td>126</td>
+            <td><a href="counties/36005.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Yabucoa, PR</td>
+            <td>72.3</td>
+            <td><span class="grade grade-c">C</span></td>
+            <td>Unavailable</td>
+            <td>2</td>
+            <td><a href="counties/72151.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Putnam, FL</td>
+            <td>72.2</td>
+            <td><span class="grade grade-b">B</span></td>
+            <td>1,331</td>
+            <td>9</td>
+            <td><a href="counties/12107.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Petersburg, VA</td>
+            <td>72.0</td>
+            <td><span class="grade grade-b">B</span></td>
+            <td>707</td>
+            <td>6</td>
+            <td><a href="counties/51730.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Los Angeles, CA</td>
+            <td>71.9</td>
+            <td><span class="grade grade-b">B</span></td>
+            <td>304,988</td>
+            <td>1,411</td>
+            <td><a href="counties/06037.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Miami-Dade, FL</td>
+            <td>71.9</td>
+            <td><span class="grade grade-b">B</span></td>
+            <td>98,394</td>
+            <td>592</td>
+            <td><a href="counties/12086.html">Open</a></td>
+          </tr>
+          
+          <tr>
+            <td>Maunabo, PR</td>
+            <td>71.9</td>
+            <td><span class="grade grade-c">C</span></td>
+            <td>Unavailable</td>
+            <td>1</td>
+            <td><a href="counties/72095.html">Open</a></td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section muted">
+  <div class="container">
+    <div class="section-heading split-heading">
+      <div>
+        <p class="eyebrow">Score calibration</p>
+        <h2>Most counties sit in the middle</h2>
+      </div>
+      <p>Use the distribution to understand whether a county is unusual before drawing local conclusions.</p>
+    </div>
+    <div class="distribution-table" role="img" aria-label="Distribution of counties by Small Business Support Priority Signal band">
+      
+      
+      <div class="distribution-row">
+        <span class="score-band-label">0-25</span>
+        <span class="distribution-track"><span class="distribution-fill" style="width: 4.686530105524519%"></span></span>
+        <span class="score-bar-value">151</span>
+        <span class="score-bar-percent">4.7%</span>
+      </div>
+      
+      <div class="distribution-row">
+        <span class="score-band-label">26-50</span>
+        <span class="distribution-track"><span class="distribution-fill" style="width: 50.806952203600254%"></span></span>
+        <span class="score-bar-value">1,637</span>
+        <span class="score-bar-percent">50.8%</span>
+      </div>
+      
+      <div class="distribution-row">
+        <span class="score-band-label">51-75</span>
+        <span class="distribution-track"><span class="distribution-fill" style="width: 44.320297951582866%"></span></span>
+        <span class="score-bar-value">1,428</span>
+        <span class="score-bar-percent">44.3%</span>
+      </div>
+      
+      <div class="distribution-row">
+        <span class="score-band-label">76-100</span>
+        <span class="distribution-track"><span class="distribution-fill" style="width: 0.186219739292365%"></span></span>
+        <span class="score-bar-value">6</span>
+        <span class="score-bar-percent">0.2%</span>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading split-heading">
+      <div>
+        <p class="eyebrow">Illinois launch focus</p>
+        <h2>A curated first state view</h2>
+      </div>
+      <p>Selected Illinois examples are grouped for a more focused state-level review.</p>
+    </div>
+    <div class="county-grid informative">
+      
+      <a class="county-card" href="counties/17031.html">
+        <span class="county-kicker">Featured brief</span>
+        <span class="county-title">Cook, IL</span>
+        <span class="score-pill">Signal 64.3 | Quality B</span>
+        <span class="county-meta">134,513 establishments</span>
+        <span class="county-meta">1,139 FDIC branches | 13.3% poverty signal</span>
+      </a>
+      
+      <a class="county-card" href="counties/17201.html">
+        <span class="county-kicker">Illinois county</span>
+        <span class="county-title">Winnebago, IL</span>
+        <span class="score-pill">Signal 63.5 | Quality B</span>
+        <span class="county-meta">6,286 establishments</span>
+        <span class="county-meta">63 FDIC branches | 16.0% poverty signal</span>
+      </a>
+      
+      <a class="county-card" href="counties/17143.html">
+        <span class="county-kicker">Illinois county</span>
+        <span class="county-title">Peoria, IL</span>
+        <span class="score-pill">Signal 62.0 | Quality B</span>
+        <span class="county-meta">4,168 establishments</span>
+        <span class="county-meta">48 FDIC branches | 15.4% poverty signal</span>
+      </a>
+      
+      <a class="county-card" href="counties/17097.html">
+        <span class="county-kicker">Featured brief</span>
+        <span class="county-title">Lake, IL</span>
+        <span class="score-pill">Signal 61.5 | Quality B</span>
+        <span class="county-meta">20,076 establishments</span>
+        <span class="county-meta">152 FDIC branches | 8.1% poverty signal</span>
+      </a>
+      
+      <a class="county-card" href="counties/17043.html">
+        <span class="county-kicker">Featured brief</span>
+        <span class="county-title">DuPage, IL</span>
+        <span class="score-pill">Signal 57.3 | Quality B</span>
+        <span class="county-meta">34,121 establishments</span>
+        <span class="county-meta">252 FDIC branches | 6.4% poverty signal</span>
+      </a>
+      
+      <a class="county-card" href="counties/17163.html">
+        <span class="county-kicker">Illinois county</span>
+        <span class="county-title">St. Clair, IL</span>
+        <span class="score-pill">Signal 55.6 | Quality B</span>
+        <span class="county-meta">4,973 establishments</span>
+        <span class="county-meta">68 FDIC branches | 13.6% poverty signal</span>
+      </a>
+      
+      <a class="county-card" href="counties/17019.html">
+        <span class="county-kicker">Illinois county</span>
+        <span class="county-title">Champaign, IL</span>
+        <span class="score-pill">Signal 54.3 | Quality B</span>
+        <span class="county-meta">4,237 establishments</span>
+        <span class="county-meta">71 FDIC branches | 18.0% poverty signal</span>
+      </a>
+      
+      <a class="county-card" href="counties/17167.html">
+        <span class="county-kicker">Illinois county</span>
+        <span class="county-title">Sangamon, IL</span>
+        <span class="score-pill">Signal 50.3 | Quality B</span>
+        <span class="county-meta">4,925 establishments</span>
+        <span class="county-meta">76 FDIC branches | 12.9% poverty signal</span>
+      </a>
+      
+      <a class="county-card" href="counties/17001.html">
+        <span class="county-kicker">Illinois county</span>
+        <span class="county-title">Adams, IL</span>
+        <span class="score-pill">Signal 49.3 | Quality B</span>
+        <span class="county-meta">1,787 establishments</span>
+        <span class="county-meta">32 FDIC branches | 12.3% poverty signal</span>
+      </a>
+      
+      <a class="county-card" href="counties/17113.html">
+        <span class="county-kicker">Illinois county</span>
+        <span class="county-title">McLean, IL</span>
+        <span class="score-pill">Signal 48.0 | Quality B</span>
+        <span class="county-meta">3,481 establishments</span>
+        <span class="county-meta">48 FDIC branches | 13.0% poverty signal</span>
+      </a>
+      
+      <a class="county-card" href="counties/17109.html">
+        <span class="county-kicker">Illinois county</span>
+        <span class="county-title">McDonough, IL</span>
+        <span class="score-pill">Signal 47.3 | Quality B</span>
+        <span class="county-meta">611 establishments</span>
+        <span class="county-meta">17 FDIC branches | 19.9% poverty signal</span>
+      </a>
+      
+      <a class="county-card" href="counties/17189.html">
+        <span class="county-kicker">Illinois county</span>
+        <span class="county-title">Washington, IL</span>
+        <span class="score-pill">Signal 26.6 | Quality B</span>
+        <span class="county-meta">364 establishments</span>
+        <span class="county-meta">13 FDIC branches | 7.8% poverty signal</span>
+      </a>
+      
+    </div>
+    <a class="text-link" href="illinois.html">Open the Illinois spotlight</a>
+  </div>
+</section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Main Street Capital Access Atlas</strong>
+        <p>Public data to start better conversations about small-business support. Built independently; no private data.</p>
+        <p class="footer-disclaimer">This project is built independently using public data. It is not affiliated with, endorsed by, or sponsored by any financial institution, government agency, or data publisher.</p>
+      </div>
+      <div class="footer-links">
+        <a href="contribute.html">Contribute</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="limitations.html">Limitations</a>
+        <a href="sources.html">Sources</a>
+        <a href="accessibility.html">Accessibility</a>
+        <a href="assets/data/data_dictionary.csv">Data dictionary</a>
+        <a href="assets/data/source_manifest.json">Source manifest</a>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="static/js/app.js?v=361eb349b55a"></script>
+  </body>
+</html>

@@ -1,0 +1,862 @@
+[
+  {
+    "category": "Geography",
+    "column_name": "fips",
+    "description": "Five-digit county or county-equivalent Federal Information Processing Standards code.",
+    "display_name": "County FIPS",
+    "nullable": false,
+    "source": "Census county geography",
+    "unit": "Five-digit code",
+    "used_in_signal": false
+  },
+  {
+    "category": "Geography",
+    "column_name": "county_name",
+    "description": "County or county-equivalent name used for public display.",
+    "display_name": "County name",
+    "nullable": false,
+    "source": "Census county geography",
+    "unit": "Text",
+    "used_in_signal": false
+  },
+  {
+    "category": "Geography",
+    "column_name": "state_fips",
+    "description": "Two-digit state or territory FIPS code.",
+    "display_name": "State FIPS",
+    "nullable": false,
+    "source": "Census county geography",
+    "unit": "Two-digit code",
+    "used_in_signal": false
+  },
+  {
+    "category": "Geography",
+    "column_name": "state_abbr",
+    "description": "Postal-style state or territory abbreviation.",
+    "display_name": "State abbreviation",
+    "nullable": false,
+    "source": "Census county geography",
+    "unit": "Text",
+    "used_in_signal": false
+  },
+  {
+    "category": "Geography",
+    "column_name": "state_name",
+    "description": "State or territory name.",
+    "display_name": "State name",
+    "nullable": false,
+    "source": "Census county geography",
+    "unit": "Text",
+    "used_in_signal": false
+  },
+  {
+    "category": "Geography",
+    "column_name": "namelsad",
+    "description": "Census NAMELSAD label for the county or county-equivalent area.",
+    "display_name": "Legal/statistical area name",
+    "nullable": false,
+    "source": "Census county geography",
+    "unit": "Text",
+    "used_in_signal": false
+  },
+  {
+    "category": "Geography",
+    "column_name": "lat",
+    "description": "Approximate county centroid latitude for maps and search.",
+    "display_name": "Latitude",
+    "nullable": false,
+    "source": "Census county geography",
+    "unit": "Decimal degrees",
+    "used_in_signal": false
+  },
+  {
+    "category": "Geography",
+    "column_name": "lon",
+    "description": "Approximate county centroid longitude for maps and search.",
+    "display_name": "Longitude",
+    "nullable": false,
+    "source": "Census county geography",
+    "unit": "Decimal degrees",
+    "used_in_signal": false
+  },
+  {
+    "category": "Business landscape",
+    "column_name": "establishments",
+    "description": "Total employer establishments reported in County Business Patterns.",
+    "display_name": "Business establishments",
+    "nullable": true,
+    "source": "Census County Business Patterns",
+    "unit": "Count",
+    "used_in_signal": true
+  },
+  {
+    "category": "Business landscape",
+    "column_name": "business_employment",
+    "description": "Total employment reported by employer establishments in County Business Patterns.",
+    "display_name": "Business employment",
+    "nullable": true,
+    "source": "Census County Business Patterns",
+    "unit": "Jobs",
+    "used_in_signal": true
+  },
+  {
+    "category": "Business landscape",
+    "column_name": "annual_payroll_thousands",
+    "description": "Annual payroll reported in County Business Patterns, expressed in thousands of dollars.",
+    "display_name": "Annual payroll",
+    "nullable": true,
+    "source": "Census County Business Patterns",
+    "unit": "Thousands of dollars",
+    "used_in_signal": false
+  },
+  {
+    "category": "Business landscape",
+    "column_name": "small_establishments_under_20",
+    "description": "Employer establishments in CBP employment-size classes below 20 employees, when reported.",
+    "display_name": "Small establishments under 20 employees",
+    "nullable": true,
+    "source": "Census County Business Patterns",
+    "unit": "Count",
+    "used_in_signal": false
+  },
+  {
+    "category": "Business landscape",
+    "column_name": "top_industry_naics2",
+    "description": "Two-digit NAICS sector with the largest number of establishments in the county.",
+    "display_name": "Largest establishment sector NAICS",
+    "nullable": true,
+    "source": "Census County Business Patterns",
+    "unit": "Two-digit NAICS sector",
+    "used_in_signal": false
+  },
+  {
+    "category": "Business landscape",
+    "column_name": "top_industry_name",
+    "description": "Plain-language name of the top establishment sector by county establishment count.",
+    "display_name": "Largest establishment sector",
+    "nullable": true,
+    "source": "Census County Business Patterns",
+    "unit": "Text",
+    "used_in_signal": false
+  },
+  {
+    "category": "Business landscape",
+    "column_name": "top_industry_establishments",
+    "description": "Number of establishments in the county's largest two-digit NAICS sector.",
+    "display_name": "Largest sector establishments",
+    "nullable": true,
+    "source": "Census County Business Patterns",
+    "unit": "Count",
+    "used_in_signal": false
+  },
+  {
+    "category": "Business landscape",
+    "column_name": "top_industry_establishment_share",
+    "description": "Largest two-digit NAICS sector establishment count divided by total establishments.",
+    "display_name": "Largest sector establishment share",
+    "nullable": true,
+    "source": "Census County Business Patterns",
+    "unit": "Percent",
+    "used_in_signal": false
+  },
+  {
+    "category": "Business landscape",
+    "column_name": "small_establishments_under_20_pct",
+    "description": "Share of employer establishments in CBP employment-size classes below 20 employees.",
+    "display_name": "Small establishments under 20 employees share",
+    "nullable": true,
+    "source": "Census County Business Patterns",
+    "unit": "Percent",
+    "used_in_signal": true
+  },
+  {
+    "category": "Population and income",
+    "column_name": "population",
+    "description": "Resident population used as the denominator for per-resident rates.",
+    "display_name": "Resident population",
+    "nullable": true,
+    "source": "Census Population Estimates or ACS fallback",
+    "unit": "People",
+    "used_in_signal": true
+  },
+  {
+    "category": "Population and income",
+    "column_name": "population_estimate_year",
+    "description": "Vintage year for the Census county population estimate.",
+    "display_name": "Population estimate year",
+    "nullable": true,
+    "source": "Census Population Estimates",
+    "unit": "Year",
+    "used_in_signal": false
+  },
+  {
+    "category": "Population and income",
+    "column_name": "population_estimates_base_2020",
+    "description": "Census 2020 population base used by the Population Estimates Program.",
+    "display_name": "2020 population estimates base",
+    "nullable": true,
+    "source": "Census Population Estimates",
+    "unit": "People",
+    "used_in_signal": false
+  },
+  {
+    "category": "Population and income",
+    "column_name": "saipe_poverty_count",
+    "description": "Estimated number of people in poverty from Small Area Income and Poverty Estimates.",
+    "display_name": "SAIPE poverty count",
+    "nullable": true,
+    "source": "Census SAIPE",
+    "unit": "People",
+    "used_in_signal": false
+  },
+  {
+    "category": "Population and income",
+    "column_name": "saipe_poverty_pct",
+    "description": "Estimated share of people in poverty from Small Area Income and Poverty Estimates.",
+    "display_name": "SAIPE poverty rate",
+    "nullable": true,
+    "source": "Census SAIPE",
+    "unit": "Percent",
+    "used_in_signal": true
+  },
+  {
+    "category": "Population and income",
+    "column_name": "saipe_median_household_income",
+    "description": "Estimated median household income from Small Area Income and Poverty Estimates.",
+    "display_name": "SAIPE median household income",
+    "nullable": true,
+    "source": "Census SAIPE",
+    "unit": "Dollars",
+    "used_in_signal": true
+  },
+  {
+    "category": "Population and income",
+    "column_name": "income_poverty_estimate_year",
+    "description": "Vintage year for SAIPE income and poverty estimates.",
+    "display_name": "Income and poverty estimate year",
+    "nullable": true,
+    "source": "Census SAIPE",
+    "unit": "Year",
+    "used_in_signal": false
+  },
+  {
+    "category": "ACS optional context",
+    "column_name": "acs_population",
+    "description": "ACS population estimate, used as a fallback only when the population estimate is absent.",
+    "display_name": "ACS population",
+    "nullable": true,
+    "source": "Census ACS 5-year API",
+    "unit": "People",
+    "used_in_signal": false
+  },
+  {
+    "category": "ACS optional context",
+    "column_name": "households",
+    "description": "Total households from ACS detailed tables when API access is configured.",
+    "display_name": "Households",
+    "nullable": true,
+    "source": "Census ACS 5-year API",
+    "unit": "Households",
+    "used_in_signal": false
+  },
+  {
+    "category": "Population and income",
+    "column_name": "median_household_income",
+    "description": "Median household income used in the community economic stress component.",
+    "display_name": "Median household income",
+    "nullable": true,
+    "source": "Census SAIPE or ACS fallback",
+    "unit": "Dollars",
+    "used_in_signal": true
+  },
+  {
+    "category": "Population and income",
+    "column_name": "poverty_pct",
+    "description": "Poverty rate used in the community economic stress component.",
+    "display_name": "Poverty rate",
+    "nullable": true,
+    "source": "Census SAIPE or ACS fallback",
+    "unit": "Percent",
+    "used_in_signal": true
+  },
+  {
+    "category": "Labor market",
+    "column_name": "labor_force",
+    "description": "County labor force count from Local Area Unemployment Statistics.",
+    "display_name": "Labor force",
+    "nullable": true,
+    "source": "BLS LAUS manual import",
+    "unit": "People",
+    "used_in_signal": false
+  },
+  {
+    "category": "Labor market",
+    "column_name": "unemployed",
+    "description": "County unemployed-resident count from Local Area Unemployment Statistics.",
+    "display_name": "Unemployed residents",
+    "nullable": true,
+    "source": "BLS LAUS manual import",
+    "unit": "People",
+    "used_in_signal": false
+  },
+  {
+    "category": "Labor market",
+    "column_name": "unemployment_pct",
+    "description": "County unemployment rate when a public source is available.",
+    "display_name": "Unemployment rate",
+    "nullable": true,
+    "source": "BLS LAUS manual import or ACS optional context",
+    "unit": "Percent",
+    "used_in_signal": true
+  },
+  {
+    "category": "Housing pressure",
+    "column_name": "rent_burden_pct",
+    "description": "Share of renter households with gross rent at or above 30 percent of household income.",
+    "display_name": "Rent-burdened households",
+    "nullable": true,
+    "source": "Census ACS 5-year API",
+    "unit": "Percent",
+    "used_in_signal": true
+  },
+  {
+    "category": "Access context",
+    "column_name": "no_vehicle_pct",
+    "description": "Share of households with no vehicle available.",
+    "display_name": "Households without vehicle access",
+    "nullable": true,
+    "source": "Census ACS 5-year API",
+    "unit": "Percent",
+    "used_in_signal": true
+  },
+  {
+    "category": "Access context",
+    "column_name": "no_internet_pct",
+    "description": "Share of households without an internet subscription.",
+    "display_name": "Households without internet subscription",
+    "nullable": true,
+    "source": "Census ACS 5-year API",
+    "unit": "Percent",
+    "used_in_signal": true
+  },
+  {
+    "category": "ACS optional context",
+    "column_name": "education_population_25_plus",
+    "description": "ACS educational-attainment universe for residents age 25 and older.",
+    "display_name": "Population age 25 and older",
+    "nullable": true,
+    "source": "Census ACS 5-year API",
+    "unit": "People",
+    "used_in_signal": false
+  },
+  {
+    "category": "ACS optional context",
+    "column_name": "bachelors_or_higher_population",
+    "description": "Residents age 25 and older with a bachelor's, master's, professional, or doctorate degree.",
+    "display_name": "Bachelor's degree or higher population",
+    "nullable": true,
+    "source": "Census ACS 5-year API",
+    "unit": "People",
+    "used_in_signal": false
+  },
+  {
+    "category": "ACS optional context",
+    "column_name": "bachelors_or_higher_pct",
+    "description": "Share of residents age 25 and older with a bachelor's degree or higher.",
+    "display_name": "Bachelor's degree or higher rate",
+    "nullable": true,
+    "source": "Census ACS 5-year API",
+    "unit": "Percent",
+    "used_in_signal": false
+  },
+  {
+    "category": "Banking presence",
+    "column_name": "branch_count",
+    "description": "Open bank branch locations aggregated to county.",
+    "display_name": "Bank branches",
+    "nullable": true,
+    "source": "FDIC BankFind",
+    "unit": "Count",
+    "used_in_signal": true
+  },
+  {
+    "category": "Banking presence",
+    "column_name": "sod_year",
+    "description": "Latest available Summary of Deposits survey year included in the build.",
+    "display_name": "Summary of Deposits year",
+    "nullable": true,
+    "source": "FDIC Summary of Deposits",
+    "unit": "Year",
+    "used_in_signal": false
+  },
+  {
+    "category": "Banking presence",
+    "column_name": "sod_branch_records",
+    "description": "Number of SOD branch records aggregated to the county.",
+    "display_name": "Summary of Deposits branch records",
+    "nullable": true,
+    "source": "FDIC Summary of Deposits",
+    "unit": "Count",
+    "used_in_signal": false
+  },
+  {
+    "category": "Banking presence",
+    "column_name": "branch_deposits_thousands",
+    "description": "Branch-level deposits from the latest Summary of Deposits survey, aggregated to county.",
+    "display_name": "Branch deposits",
+    "nullable": true,
+    "source": "FDIC Summary of Deposits",
+    "unit": "Thousands of dollars",
+    "used_in_signal": false
+  },
+  {
+    "category": "Public lending signals",
+    "column_name": "sba_loan_count",
+    "description": "SBA 7(a) or 504 public loan count aggregated to county when imported.",
+    "display_name": "SBA loan count",
+    "nullable": true,
+    "source": "SBA manual import",
+    "unit": "Count",
+    "used_in_signal": true
+  },
+  {
+    "category": "Public lending signals",
+    "column_name": "sba_loan_amount",
+    "description": "SBA 7(a) or 504 public loan dollar amount aggregated to county when imported.",
+    "display_name": "SBA loan amount",
+    "nullable": true,
+    "source": "SBA manual import",
+    "unit": "Dollars",
+    "used_in_signal": false
+  },
+  {
+    "category": "Local support ecosystem",
+    "column_name": "cdfi_count",
+    "description": "Certified CDFI count or presence signal aggregated to county when imported.",
+    "display_name": "CDFI count",
+    "nullable": true,
+    "source": "CDFI Fund manual import",
+    "unit": "Count",
+    "used_in_signal": true
+  },
+  {
+    "category": "Labor market",
+    "column_name": "employed",
+    "description": "County employed-resident count from Local Area Unemployment Statistics.",
+    "display_name": "Employed residents",
+    "nullable": true,
+    "source": "BLS LAUS manual import",
+    "unit": "People",
+    "used_in_signal": false
+  },
+  {
+    "category": "Labor market",
+    "column_name": "unemployment_year",
+    "description": "Vintage year for the unemployment values.",
+    "display_name": "Unemployment estimate year",
+    "nullable": true,
+    "source": "BLS LAUS manual import",
+    "unit": "Year",
+    "used_in_signal": false
+  },
+  {
+    "category": "Public lending signals",
+    "column_name": "cra_small_business_loans",
+    "description": "Public CRA small-business loan origination count aggregated to county when available.",
+    "display_name": "CRA small-business loans",
+    "nullable": true,
+    "source": "FFIEC CRA manual import",
+    "unit": "Count",
+    "used_in_signal": true
+  },
+  {
+    "category": "Public lending signals",
+    "column_name": "cra_small_business_amount",
+    "description": "Public CRA small-business loan origination dollar amount aggregated to county when available.",
+    "display_name": "CRA small-business loan amount",
+    "nullable": true,
+    "source": "FFIEC CRA manual import",
+    "unit": "Dollars",
+    "used_in_signal": false
+  },
+  {
+    "category": "Housing pressure",
+    "column_name": "fmr_to_income_pct",
+    "description": "Estimated two-bedroom fair-market rent as a share of estimated household income.",
+    "display_name": "Fair-market rent to income ratio",
+    "nullable": true,
+    "source": "HUD optional/manual import",
+    "unit": "Percent",
+    "used_in_signal": true
+  },
+  {
+    "category": "Housing pressure",
+    "column_name": "two_bedroom_fmr",
+    "description": "HUD two-bedroom fair-market rent when available.",
+    "display_name": "Two-bedroom fair-market rent",
+    "nullable": true,
+    "source": "HUD optional/manual import",
+    "unit": "Dollars per month",
+    "used_in_signal": true
+  },
+  {
+    "category": "Derived rates",
+    "column_name": "establishments_per_1000_residents",
+    "description": "Business establishments divided by resident population and multiplied by 1,000.",
+    "display_name": "Establishments per 1,000 residents",
+    "nullable": true,
+    "source": "Derived from CBP and population",
+    "unit": "Rate",
+    "used_in_signal": true
+  },
+  {
+    "category": "Derived rates",
+    "column_name": "employment_per_1000_residents",
+    "description": "County Business Patterns employment divided by resident population and multiplied by 1,000.",
+    "display_name": "Business employment per 1,000 residents",
+    "nullable": true,
+    "source": "Derived from CBP and population",
+    "unit": "Rate",
+    "used_in_signal": true
+  },
+  {
+    "category": "Derived rates",
+    "column_name": "branches_per_10k_residents",
+    "description": "Bank branches divided by resident population and multiplied by 10,000.",
+    "display_name": "Branches per 10,000 residents",
+    "nullable": true,
+    "source": "Derived from FDIC BankFind and population",
+    "unit": "Rate",
+    "used_in_signal": true
+  },
+  {
+    "category": "Derived rates",
+    "column_name": "branches_per_1000_establishments",
+    "description": "Bank branches divided by business establishments and multiplied by 1,000.",
+    "display_name": "Branches per 1,000 establishments",
+    "nullable": true,
+    "source": "Derived from FDIC BankFind and CBP",
+    "unit": "Rate",
+    "used_in_signal": true
+  },
+  {
+    "category": "Derived rates",
+    "column_name": "branch_deposits_per_resident",
+    "description": "County branch deposits divided by resident population. This is market-presence context, not a lending or credit-access measure.",
+    "display_name": "Branch deposits per resident",
+    "nullable": true,
+    "source": "Derived from FDIC Summary of Deposits and population",
+    "unit": "Dollars per resident",
+    "used_in_signal": false
+  },
+  {
+    "category": "Derived rates",
+    "column_name": "cra_loans_per_1000_establishments",
+    "description": "CRA small-business loans divided by business establishments and multiplied by 1,000.",
+    "display_name": "CRA loans per 1,000 establishments",
+    "nullable": true,
+    "source": "Derived from CRA manual import and CBP",
+    "unit": "Rate",
+    "used_in_signal": true
+  },
+  {
+    "category": "Derived rates",
+    "column_name": "sba_loans_per_1000_establishments",
+    "description": "SBA loans divided by business establishments and multiplied by 1,000.",
+    "display_name": "SBA loans per 1,000 establishments",
+    "nullable": true,
+    "source": "Derived from SBA manual import and CBP",
+    "unit": "Rate",
+    "used_in_signal": true
+  },
+  {
+    "category": "Derived rates",
+    "column_name": "cdfis_per_1000_establishments",
+    "description": "CDFI count divided by business establishments and multiplied by 1,000.",
+    "display_name": "CDFIs per 1,000 establishments",
+    "nullable": true,
+    "source": "Derived from CDFI manual import and CBP",
+    "unit": "Rate",
+    "used_in_signal": true
+  },
+  {
+    "category": "Normalized priority indicators",
+    "column_name": "establishments_per_1000_residents_priority",
+    "description": "Normalized priority version of `establishments_per_1000_residents`. Winsorized percentile priority value where 100 means stronger local verification priority for this specific indicator, based on the indicator direction in the methodology.",
+    "display_name": "Establishments per 1,000 residents priority",
+    "nullable": true,
+    "source": "Derived from Derived from CBP and population",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Normalized priority indicators",
+    "column_name": "employment_per_1000_residents_priority",
+    "description": "Normalized priority version of `employment_per_1000_residents`. Winsorized percentile priority value where 100 means stronger local verification priority for this specific indicator, based on the indicator direction in the methodology.",
+    "display_name": "Business employment per 1,000 residents priority",
+    "nullable": true,
+    "source": "Derived from Derived from CBP and population",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Normalized priority indicators",
+    "column_name": "establishments_priority",
+    "description": "Normalized priority version of `establishments`. Winsorized percentile priority value where 100 means stronger local verification priority for this specific indicator, based on the indicator direction in the methodology.",
+    "display_name": "Business establishments priority",
+    "nullable": true,
+    "source": "Derived from Census County Business Patterns",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Normalized priority indicators",
+    "column_name": "small_establishments_under_20_pct_priority",
+    "description": "Normalized priority version of `small_establishments_under_20_pct`. Winsorized percentile priority value where 100 means stronger local verification priority for this specific indicator, based on the indicator direction in the methodology.",
+    "display_name": "Small establishments under 20 employees share priority",
+    "nullable": true,
+    "source": "Derived from Census County Business Patterns",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Normalized priority indicators",
+    "column_name": "branches_per_10k_residents_priority",
+    "description": "Normalized priority version of `branches_per_10k_residents`. Winsorized percentile priority value where 100 means stronger local verification priority for this specific indicator, based on the indicator direction in the methodology.",
+    "display_name": "Branches per 10,000 residents priority",
+    "nullable": true,
+    "source": "Derived from Derived from FDIC BankFind and population",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Normalized priority indicators",
+    "column_name": "branches_per_1000_establishments_priority",
+    "description": "Normalized priority version of `branches_per_1000_establishments`. Winsorized percentile priority value where 100 means stronger local verification priority for this specific indicator, based on the indicator direction in the methodology.",
+    "display_name": "Branches per 1,000 establishments priority",
+    "nullable": true,
+    "source": "Derived from Derived from FDIC BankFind and CBP",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Normalized priority indicators",
+    "column_name": "cra_loans_per_1000_establishments_priority",
+    "description": "Normalized priority version of `cra_loans_per_1000_establishments`. Winsorized percentile priority value where 100 means stronger local verification priority for this specific indicator, based on the indicator direction in the methodology.",
+    "display_name": "CRA loans per 1,000 establishments priority",
+    "nullable": true,
+    "source": "Derived from Derived from CRA manual import and CBP",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Normalized priority indicators",
+    "column_name": "sba_loans_per_1000_establishments_priority",
+    "description": "Normalized priority version of `sba_loans_per_1000_establishments`. Winsorized percentile priority value where 100 means stronger local verification priority for this specific indicator, based on the indicator direction in the methodology.",
+    "display_name": "SBA loans per 1,000 establishments priority",
+    "nullable": true,
+    "source": "Derived from Derived from SBA manual import and CBP",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Normalized priority indicators",
+    "column_name": "poverty_pct_priority",
+    "description": "Normalized priority version of `poverty_pct`. Winsorized percentile priority value where 100 means stronger local verification priority for this specific indicator, based on the indicator direction in the methodology.",
+    "display_name": "Poverty rate priority",
+    "nullable": true,
+    "source": "Derived from Census SAIPE or ACS fallback",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Normalized priority indicators",
+    "column_name": "unemployment_pct_priority",
+    "description": "Normalized priority version of `unemployment_pct`. Winsorized percentile priority value where 100 means stronger local verification priority for this specific indicator, based on the indicator direction in the methodology.",
+    "display_name": "Unemployment rate priority",
+    "nullable": true,
+    "source": "Derived from BLS LAUS manual import or ACS optional context",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Normalized priority indicators",
+    "column_name": "no_vehicle_pct_priority",
+    "description": "Normalized priority version of `no_vehicle_pct`. Winsorized percentile priority value where 100 means stronger local verification priority for this specific indicator, based on the indicator direction in the methodology.",
+    "display_name": "Households without vehicle access priority",
+    "nullable": true,
+    "source": "Derived from Census ACS 5-year API",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Normalized priority indicators",
+    "column_name": "no_internet_pct_priority",
+    "description": "Normalized priority version of `no_internet_pct`. Winsorized percentile priority value where 100 means stronger local verification priority for this specific indicator, based on the indicator direction in the methodology.",
+    "display_name": "Households without internet subscription priority",
+    "nullable": true,
+    "source": "Derived from Census ACS 5-year API",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Normalized priority indicators",
+    "column_name": "median_household_income_priority",
+    "description": "Normalized priority version of `median_household_income`. Winsorized percentile priority value where 100 means stronger local verification priority for this specific indicator, based on the indicator direction in the methodology.",
+    "display_name": "Median household income priority",
+    "nullable": true,
+    "source": "Derived from Census SAIPE or ACS fallback",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Normalized priority indicators",
+    "column_name": "rent_burden_pct_priority",
+    "description": "Normalized priority version of `rent_burden_pct`. Winsorized percentile priority value where 100 means stronger local verification priority for this specific indicator, based on the indicator direction in the methodology.",
+    "display_name": "Rent-burdened households priority",
+    "nullable": true,
+    "source": "Derived from Census ACS 5-year API",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Normalized priority indicators",
+    "column_name": "fmr_to_income_pct_priority",
+    "description": "Normalized priority version of `fmr_to_income_pct`. Winsorized percentile priority value where 100 means stronger local verification priority for this specific indicator, based on the indicator direction in the methodology.",
+    "display_name": "Fair-market rent to income ratio priority",
+    "nullable": true,
+    "source": "Derived from HUD optional/manual import",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Normalized priority indicators",
+    "column_name": "cdfis_per_1000_establishments_priority",
+    "description": "Normalized priority version of `cdfis_per_1000_establishments`. Winsorized percentile priority value where 100 means stronger local verification priority for this specific indicator, based on the indicator direction in the methodology.",
+    "display_name": "CDFIs per 1,000 establishments priority",
+    "nullable": true,
+    "source": "Derived from Derived from CDFI manual import and CBP",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Signal components",
+    "column_name": "small_business_importance",
+    "description": "Average of available business-density and business-scale priority indicators.",
+    "display_name": "Small-business importance component",
+    "nullable": true,
+    "source": "Derived score component",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Signal components",
+    "column_name": "capital_access_visibility_gap",
+    "description": "Average of available lower-branch-density and lower-public-lending priority indicators.",
+    "display_name": "Capital-access visibility gap component",
+    "nullable": true,
+    "source": "Derived score component",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Signal components",
+    "column_name": "community_economic_stress",
+    "description": "Average of available poverty, unemployment, access, and income priority indicators.",
+    "display_name": "Community economic stress component",
+    "nullable": true,
+    "source": "Derived score component",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Signal components",
+    "column_name": "housing_cost_pressure",
+    "description": "Average of available rent burden and fair-market-rent pressure indicators.",
+    "display_name": "Housing-cost pressure component",
+    "nullable": true,
+    "source": "Derived score component",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Signal components",
+    "column_name": "local_support_ecosystem_gap",
+    "description": "Average of available lower-CDFI-density and lower-branch-density support-gap indicators.",
+    "display_name": "Local support ecosystem gap component",
+    "nullable": true,
+    "source": "Derived score component",
+    "unit": "0-100 percentile signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Data quality",
+    "column_name": "data_completeness",
+    "description": "Share of expected source fields that are populated for the county.",
+    "display_name": "Data completeness",
+    "nullable": false,
+    "source": "Derived data-quality measure",
+    "unit": "Share from 0 to 1",
+    "used_in_signal": true
+  },
+  {
+    "category": "Data quality",
+    "column_name": "data_quality_gap",
+    "description": "Missing-data signal calculated as one minus data completeness, expressed on a 0-100 scale.",
+    "display_name": "Data quality gap",
+    "nullable": false,
+    "source": "Derived data-quality measure",
+    "unit": "0-100 signal",
+    "used_in_signal": true
+  },
+  {
+    "category": "Data quality",
+    "column_name": "data_quality_grade",
+    "description": "Plain-language completeness grade; lower grades mean more local verification is needed.",
+    "display_name": "Data quality grade",
+    "nullable": false,
+    "source": "Derived data-quality measure",
+    "unit": "A, B, C, or D",
+    "used_in_signal": false
+  },
+  {
+    "category": "Data quality",
+    "column_name": "missing_source_fields",
+    "description": "Expected public fields that are absent for the county in the current build.",
+    "display_name": "Missing source fields",
+    "nullable": true,
+    "source": "Derived data-quality measure",
+    "unit": "Comma-separated field names",
+    "used_in_signal": false
+  },
+  {
+    "category": "Data quality",
+    "column_name": "score_component_coverage",
+    "description": "Share of total score weight available after accounting for missing score components.",
+    "display_name": "Score component coverage",
+    "nullable": false,
+    "source": "Derived score metadata",
+    "unit": "Share from 0 to 1",
+    "used_in_signal": false
+  },
+  {
+    "category": "Signal outputs",
+    "column_name": "support_priority_signal",
+    "description": "Cautious public-data signal for local verification and resource-mapping conversations.",
+    "display_name": "Small Business Support Priority Signal",
+    "nullable": true,
+    "source": "Derived final signal",
+    "unit": "0-100 signal",
+    "used_in_signal": false
+  },
+  {
+    "category": "Data quality",
+    "column_name": "substantive_component_coverage",
+    "description": "Share of non-data-quality component weight available for the county.",
+    "display_name": "Substantive component coverage",
+    "nullable": false,
+    "source": "Derived score metadata",
+    "unit": "Share from 0 to 1",
+    "used_in_signal": false
+  }
+]

@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sources | Main Street Capital Access Atlas</title>
+    <meta name="description" content="Data source manifest for Main Street Capital Access Atlas.">
+    
+    <meta property="og:site_name" content="Main Street Capital Access Atlas">
+    <meta property="og:title" content="Sources | Main Street Capital Access Atlas">
+    <meta property="og:description" content="Data source manifest for Main Street Capital Access Atlas.">
+    <meta property="og:type" content="website">
+    
+    <meta property="og:image" content="static/img/social-preview.png">
+    <meta property="og:image:alt" content="Rendered preview of the Main Street Capital Access Atlas homepage, including the county support map, score guide, and county search panel.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sources | Main Street Capital Access Atlas">
+    <meta name="twitter:description" content="Data source manifest for Main Street Capital Access Atlas.">
+    <meta name="twitter:image" content="static/img/social-preview.png">
+    <meta name="theme-color" content="#276c6f">
+    <link rel="icon" href="static/img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="static/css/styles.css?v=c65dd5b55c6d">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="index.html">
+          <span>Main Street Capital Access Atlas</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+        <div class="nav-links" id="nav-links">
+          <a class=""  href="index.html">Home</a>
+          <a href="index.html#explore">Explore</a>
+          <a class=""  href="illinois.html">Illinois</a>
+          <a class=""  href="methodology.html">Methodology</a>
+          <a class=""  href="limitations.html">Limitations</a>
+          <a class="active" aria-current="page" href="sources.html">Sources</a>
+          <a class=""  href="contribute.html">Contribute</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      
+<section class="page-hero compact">
+  <div class="container readable">
+    <p class="eyebrow">Source transparency</p>
+    <h1>Sources</h1>
+    <p>Every source is tracked with access method, fetch status, coverage, and limitations. Optional and manual sources are displayed even when absent.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="download-panel">
+      <div>
+        <p class="eyebrow">Public export</p>
+        <h2>Download the dataset and dictionary</h2>
+        <p>Each build publishes county data, map data, source status, checksums, and a generated data dictionary so public users can inspect the fields without reading the pipeline code.</p>
+      </div>
+      <div class="download-links" aria-label="Public data downloads">
+        <a class="button primary" href="assets/data/counties.csv">County CSV</a>
+        <a class="button secondary" href="assets/data/data_dictionary.csv">Data dictionary CSV</a>
+        <a class="button secondary" href="assets/data/source_manifest.json">Source manifest JSON</a>
+        <a class="button secondary" href="assets/data/data_package_manifest.json">Data package manifest</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section muted">
+  <div class="container two-column">
+    <div class="section-heading">
+      <p class="eyebrow">Reuse responsibly</p>
+      <h2>Attribution and citation</h2>
+      <p>Cite this open-source project separately from the underlying public datasets. The source manifest lists dataset names, publishers, URLs, access methods, limitations, and current build status.</p>
+    </div>
+    <div class="guidance-grid">
+      <article class="card">
+        <h3>Project citation</h3>
+        <p>Use the repository citation file when available, and include the generated data package date when publishing analysis from county exports.</p>
+      </article>
+      <article class="card">
+        <h3>Source attribution</h3>
+        <p>Preserve attribution for Census, FDIC, and any manual public sources added to the build. Source publishers do not endorse project interpretations.</p>
+      </article>
+      <article class="card">
+        <h3>Map attribution</h3>
+        <p>The interactive map uses Leaflet and OpenStreetMap tiles. Keep map attribution visible when reusing screenshots or map views.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Open-data inventory</p>
+      <h2>Source manifest</h2>
+      <p>Statuses reflect the current build. Manual and optional-token sources are supported without blocking the default public-data build.</p>
+    </div>
+    <div class="source-grid">
+      
+      <article class="source-card">
+        <div class="source-card-header">
+          <h2>2023 Census Cartographic Boundary File, Counties</h2>
+          <span class="status status-available">available</span>
+        </div>
+        <dl>
+          <dt>Publisher</dt>
+          <dd>U.S. Census Bureau</dd>
+          <dt>Use in the atlas</dt>
+          <dd>U.S. counties and county equivalents represented in Census cartographic files</dd>
+          <dt>Access method</dt>
+          <dd>Automated download of official cartographic boundary shapefile</dd>
+          <dt>Last fetched or registered</dt>
+          <dd>2026-07-01T10:33:08Z</dd>
+          <dt>Known limitations</dt>
+          <dd>Geometry is simplified for thematic mapping and is not a legal boundary product.</dd>
+        </dl>
+        
+        <a class="text-link" href="https://www2.census.gov/geo/tiger/GENZ2023/shp/cb_2023_us_county_500k.zip">Open public source</a>
+        
+      </article>
+      
+      <article class="source-card">
+        <div class="source-card-header">
+          <h2>2023 County Business Patterns</h2>
+          <span class="status status-available">available</span>
+        </div>
+        <dl>
+          <dt>Publisher</dt>
+          <dd>U.S. Census Bureau</dd>
+          <dt>Use in the atlas</dt>
+          <dd>County-level establishments, employment, and annual payroll where reported by CBP</dd>
+          <dt>Access method</dt>
+          <dd>Automated download of official County Business Patterns county file</dd>
+          <dt>Last fetched or registered</dt>
+          <dd>2026-07-01T10:33:10Z</dd>
+          <dt>Known limitations</dt>
+          <dd>CBP covers establishments with paid employees. Some employment/payroll cells may be suppressed or noise-infused under Census disclosure rules.</dd>
+        </dl>
+        
+        <a class="text-link" href="https://www2.census.gov/programs-surveys/cbp/datasets/2023/cbp23co.zip">Open public source</a>
+        
+      </article>
+      
+      <article class="source-card">
+        <div class="source-card-header">
+          <h2>Vintage 2025 County Population Estimates</h2>
+          <span class="status status-available">available</span>
+        </div>
+        <dl>
+          <dt>Publisher</dt>
+          <dd>U.S. Census Bureau Population Estimates Program</dd>
+          <dt>Use in the atlas</dt>
+          <dd>County-level resident population estimates for counties and county equivalents</dd>
+          <dt>Access method</dt>
+          <dd>Automated download of official county population estimates CSV</dd>
+          <dt>Last fetched or registered</dt>
+          <dd>2026-07-01T10:33:10Z</dd>
+          <dt>Known limitations</dt>
+          <dd>Population estimates are revised by vintage and use boundaries from the estimate series. They provide denominator context but do not measure household stress or local resources.</dd>
+        </dl>
+        
+        <a class="text-link" href="https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/counties/totals/co-est2025-alldata.csv">Open public source</a>
+        
+      </article>
+      
+      <article class="source-card">
+        <div class="source-card-header">
+          <h2>2024 Small Area Income and Poverty Estimates</h2>
+          <span class="status status-available">available</span>
+        </div>
+        <dl>
+          <dt>Publisher</dt>
+          <dd>U.S. Census Bureau Small Area Income and Poverty Estimates Program</dd>
+          <dt>Use in the atlas</dt>
+          <dd>County-level income and poverty estimates for states and the District of Columbia</dd>
+          <dt>Access method</dt>
+          <dd>Automated download of official all-counties Excel workbook</dd>
+          <dt>Last fetched or registered</dt>
+          <dd>2026-07-01T10:33:11Z</dd>
+          <dt>Known limitations</dt>
+          <dd>SAIPE estimates are model-based and designed for federal program administration. They are useful economic context but do not replace local verification or ACS detail.</dd>
+        </dl>
+        
+        <a class="text-link" href="https://www.census.gov/data/datasets/2024/demo/saipe/2024-state-and-county.html">Open public source</a>
+        
+      </article>
+      
+      <article class="source-card">
+        <div class="source-card-header">
+          <h2>2023 ACS 5-year detailed tables</h2>
+          <span class="status status-available">available</span>
+        </div>
+        <dl>
+          <dt>Publisher</dt>
+          <dd>U.S. Census Bureau</dd>
+          <dt>Use in the atlas</dt>
+          <dd>County-level ACS indicators when API access is configured</dd>
+          <dt>Access method</dt>
+          <dd>Census API; optional CENSUS_API_KEY environment variable</dd>
+          <dt>Last fetched or registered</dt>
+          <dd>2026-07-01T10:33:33Z</dd>
+          <dt>Known limitations</dt>
+          <dd>ACS is survey-based, lagged, and includes margins of error. The default build marks this source unavailable when no Census API key is present.</dd>
+        </dl>
+        
+        <a class="text-link" href="https://api.census.gov/data/2023/acs/acs5">Open public source</a>
+        
+      </article>
+      
+      <article class="source-card">
+        <div class="source-card-header">
+          <h2>FDIC BankFind Suite branch locations</h2>
+          <span class="status status-available">available</span>
+        </div>
+        <dl>
+          <dt>Publisher</dt>
+          <dd>Federal Deposit Insurance Corporation</dd>
+          <dt>Use in the atlas</dt>
+          <dd>Open FDIC BankFind branch location records aggregated to county where matched</dd>
+          <dt>Access method</dt>
+          <dd>FDIC BankFind public API</dd>
+          <dt>Last fetched or registered</dt>
+          <dd>2026-07-01T10:33:41Z</dd>
+          <dt>Known limitations</dt>
+          <dd>County matching uses branch county and state names against Census county names. Branch presence is not a full measure of local capital access.</dd>
+        </dl>
+        
+        <a class="text-link" href="https://banks.data.fdic.gov/api/locations">Open public source</a>
+        
+      </article>
+      
+      <article class="source-card">
+        <div class="source-card-header">
+          <h2>FDIC Summary of Deposits</h2>
+          <span class="status status-available">available</span>
+        </div>
+        <dl>
+          <dt>Publisher</dt>
+          <dd>Federal Deposit Insurance Corporation</dd>
+          <dt>Use in the atlas</dt>
+          <dd>County-level branch deposit survey records aggregated from the latest available SOD year</dd>
+          <dt>Access method</dt>
+          <dd>FDIC BankFind Summary of Deposits public API</dd>
+          <dt>Last fetched or registered</dt>
+          <dd>2026-07-01T10:33:46Z</dd>
+          <dt>Known limitations</dt>
+          <dd>Deposits are reported by branch office and are not a direct measure of small-business lending, credit access, or local reinvestment.</dd>
+        </dl>
+        
+        <a class="text-link" href="https://banks.data.fdic.gov/api/sod">Open public source</a>
+        
+      </article>
+      
+      <article class="source-card">
+        <div class="source-card-header">
+          <h2>BLS Local Area Unemployment Statistics county import</h2>
+          <span class="status status-manual_optional">manual optional</span>
+        </div>
+        <dl>
+          <dt>Publisher</dt>
+          <dd>U.S. Bureau of Labor Statistics</dd>
+          <dt>Use in the atlas</dt>
+          <dd>County-level annual unemployment rate when a user-provided CSV is present</dd>
+          <dt>Access method</dt>
+          <dd>Manual CSV adapter: data/manual/bls_laus_county.csv</dd>
+          <dt>Last fetched or registered</dt>
+          <dd>Not fetched in this build</dd>
+          <dt>Known limitations</dt>
+          <dd>BLS LAUS is the preferred public source for local unemployment rates, but BLS bulk downloads may restrict automated retrieval. This adapter never fabricates values when the manual county file is absent.</dd>
+        </dl>
+        
+        <a class="text-link" href="https://www.bls.gov/lau/">Open public source</a>
+        
+      </article>
+      
+      <article class="source-card">
+        <div class="source-card-header">
+          <h2>2024 FFIEC CRA small-business lending aggregate county file</h2>
+          <span class="status status-unavailable">unavailable</span>
+        </div>
+        <dl>
+          <dt>Publisher</dt>
+          <dd>Federal Financial Institutions Examination Council</dd>
+          <dt>Use in the atlas</dt>
+          <dd>County-level CRA small-business loan originations when FFIEC flat files are reachable</dd>
+          <dt>Access method</dt>
+          <dd>Automated FFIEC CRA aggregate flat-file zip with manual fallback</dd>
+          <dt>Last fetched or registered</dt>
+          <dd>Not fetched in this build</dd>
+          <dt>Known limitations</dt>
+          <dd>CRA small-business data covers reporting depository institutions and is not comprehensive of all small-business credit. FFIEC may block scripted flat-file downloads in some local environments; blocked fetches are marked unavailable rather than filled with invented data.</dd>
+        </dl>
+        
+        <a class="text-link" href="https://www.ffiec.gov/sites/default/files/data/cra/flat-files/24exp_aggr.zip">Open public source</a>
+        
+      </article>
+      
+      <article class="source-card">
+        <div class="source-card-header">
+          <h2>SBA 7(a)/504 lending county aggregate</h2>
+          <span class="status status-available">available</span>
+        </div>
+        <dl>
+          <dt>Publisher</dt>
+          <dd>U.S. Small Business Administration</dd>
+          <dt>Use in the atlas</dt>
+          <dd>County-level SBA lending activity from latest available public FOIA current-period files</dd>
+          <dt>Access method</dt>
+          <dd>Automated SBA Open Data CKAN API with strict county aggregation</dd>
+          <dt>Last fetched or registered</dt>
+          <dd>2026-07-01T10:33:56Z</dd>
+          <dt>Known limitations</dt>
+          <dd>SBA FOIA source files include row-level public borrower records in ignored raw cache files; only county aggregates are published. County matching uses SBA project county and state names.</dd>
+        </dl>
+        
+        <a class="text-link" href="https://data.sba.gov/api/3/action/package_show?id=7-a-504-foia">Open public source</a>
+        
+      </article>
+      
+      <article class="source-card">
+        <div class="source-card-header">
+          <h2>Certified CDFI county aggregate</h2>
+          <span class="status status-available">available</span>
+        </div>
+        <dl>
+          <dt>Publisher</dt>
+          <dd>Community Development Financial Institutions Fund</dd>
+          <dt>Use in the atlas</dt>
+          <dd>County-level certified CDFI headquarters count from public certified CDFI list</dd>
+          <dt>Access method</dt>
+          <dd>Automated CDFI Fund certified list plus Census ZCTA-county relationship file</dd>
+          <dt>Last fetched or registered</dt>
+          <dd>2026-07-01T10:33:58Z</dd>
+          <dt>Known limitations</dt>
+          <dd>CDFI headquarters counts do not measure service areas, lending volume, or relationship strength. ZIP-to-county assignment uses the largest 2020 Census ZCTA-county land/water overlap.</dd>
+        </dl>
+        
+        <a class="text-link" href="https://www.cdfifund.gov/programs-training/certification/cdfi">Open public source</a>
+        
+      </article>
+      
+      <article class="source-card">
+        <div class="source-card-header">
+          <h2>HUD Fair Market Rents / Income Limits county context</h2>
+          <span class="status status-unavailable">unavailable</span>
+        </div>
+        <dl>
+          <dt>Publisher</dt>
+          <dd>U.S. Department of Housing and Urban Development</dd>
+          <dt>Use in the atlas</dt>
+          <dd>County-level housing pressure context when configured or supplied</dd>
+          <dt>Access method</dt>
+          <dd>HUD Fair Market Rents API with optional HUD_API_TOKEN</dd>
+          <dt>Last fetched or registered</dt>
+          <dd>Not fetched in this build</dd>
+          <dt>Known limitations</dt>
+          <dd>HUD API access requires a HUD User token. FMR-to-income context uses the latest available HUD two-bedroom FMR and Census SAIPE median household income when both are present.</dd>
+        </dl>
+        
+        <a class="text-link" href="https://www.huduser.gov/portal/dataset/fmr-api.html">Open public source</a>
+        
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Main Street Capital Access Atlas</strong>
+        <p>Public data to start better conversations about small-business support. Built independently; no private data.</p>
+        <p class="footer-disclaimer">This project is built independently using public data. It is not affiliated with, endorsed by, or sponsored by any financial institution, government agency, or data publisher.</p>
+      </div>
+      <div class="footer-links">
+        <a href="contribute.html">Contribute</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="limitations.html">Limitations</a>
+        <a href="sources.html">Sources</a>
+        <a href="accessibility.html">Accessibility</a>
+        <a href="assets/data/data_dictionary.csv">Data dictionary</a>
+        <a href="assets/data/source_manifest.json">Source manifest</a>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="static/js/app.js?v=361eb349b55a"></script>
+  </body>
+</html>
