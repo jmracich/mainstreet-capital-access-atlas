@@ -40,15 +40,15 @@ branch_count,Bank branches,Banking presence,FDIC BankFind,Count,True,True,Open b
 sod_year,Summary of Deposits year,Banking presence,FDIC Summary of Deposits,Year,False,True,Latest available Summary of Deposits survey year included in the build.
 sod_branch_records,Summary of Deposits branch records,Banking presence,FDIC Summary of Deposits,Count,False,True,Number of SOD branch records aggregated to the county.
 branch_deposits_thousands,Branch deposits,Banking presence,FDIC Summary of Deposits,Thousands of dollars,False,True,"Branch-level deposits from the latest Summary of Deposits survey, aggregated to county."
-sba_loan_count,SBA loan count,Public lending signals,SBA manual import,Count,True,True,SBA 7(a) or 504 public loan count aggregated to county when imported.
-sba_loan_amount,SBA loan amount,Public lending signals,SBA manual import,Dollars,False,True,SBA 7(a) or 504 public loan dollar amount aggregated to county when imported.
 cdfi_count,CDFI count,Local support ecosystem,CDFI Fund manual import,Count,True,True,Certified CDFI count or presence signal aggregated to county when imported.
+two_bedroom_fmr,Two-bedroom fair-market rent,Housing pressure,HUD optional/manual import,Dollars per month,True,True,HUD two-bedroom fair-market rent when available.
+fmr_to_income_pct,Fair-market rent to income ratio,Housing pressure,HUD optional/manual import,Percent,True,True,Estimated two-bedroom fair-market rent as a share of estimated household income.
 employed,Employed residents,Labor market,BLS LAUS manual import,People,False,True,County employed-resident count from Local Area Unemployment Statistics.
 unemployment_year,Unemployment estimate year,Labor market,BLS LAUS manual import,Year,False,True,Vintage year for the unemployment values.
 cra_small_business_loans,CRA small-business loans,Public lending signals,FFIEC CRA manual import,Count,True,True,Public CRA small-business loan origination count aggregated to county when available.
 cra_small_business_amount,CRA small-business loan amount,Public lending signals,FFIEC CRA manual import,Dollars,False,True,Public CRA small-business loan origination dollar amount aggregated to county when available.
-fmr_to_income_pct,Fair-market rent to income ratio,Housing pressure,HUD optional/manual import,Percent,True,True,Estimated two-bedroom fair-market rent as a share of estimated household income.
-two_bedroom_fmr,Two-bedroom fair-market rent,Housing pressure,HUD optional/manual import,Dollars per month,True,True,HUD two-bedroom fair-market rent when available.
+sba_loan_count,SBA loan count,Public lending signals,SBA manual import,Count,True,True,SBA 7(a) or 504 public loan count aggregated to county when imported.
+sba_loan_amount,SBA loan amount,Public lending signals,SBA manual import,Dollars,False,True,SBA 7(a) or 504 public loan dollar amount aggregated to county when imported.
 establishments_per_1000_residents,"Establishments per 1,000 residents",Derived rates,Derived from CBP and population,Rate,True,True,"Business establishments divided by resident population and multiplied by 1,000."
 employment_per_1000_residents,"Business employment per 1,000 residents",Derived rates,Derived from CBP and population,Rate,True,True,"County Business Patterns employment divided by resident population and multiplied by 1,000."
 branches_per_10k_residents,"Branches per 10,000 residents",Derived rates,Derived from FDIC BankFind and population,Rate,True,True,"Bank branches divided by resident population and multiplied by 10,000."

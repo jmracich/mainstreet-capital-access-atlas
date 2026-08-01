@@ -410,26 +410,6 @@
     "used_in_signal": false
   },
   {
-    "category": "Public lending signals",
-    "column_name": "sba_loan_count",
-    "description": "SBA 7(a) or 504 public loan count aggregated to county when imported.",
-    "display_name": "SBA loan count",
-    "nullable": true,
-    "source": "SBA manual import",
-    "unit": "Count",
-    "used_in_signal": true
-  },
-  {
-    "category": "Public lending signals",
-    "column_name": "sba_loan_amount",
-    "description": "SBA 7(a) or 504 public loan dollar amount aggregated to county when imported.",
-    "display_name": "SBA loan amount",
-    "nullable": true,
-    "source": "SBA manual import",
-    "unit": "Dollars",
-    "used_in_signal": false
-  },
-  {
     "category": "Local support ecosystem",
     "column_name": "cdfi_count",
     "description": "Certified CDFI count or presence signal aggregated to county when imported.",
@@ -437,6 +417,26 @@
     "nullable": true,
     "source": "CDFI Fund manual import",
     "unit": "Count",
+    "used_in_signal": true
+  },
+  {
+    "category": "Housing pressure",
+    "column_name": "two_bedroom_fmr",
+    "description": "HUD two-bedroom fair-market rent when available.",
+    "display_name": "Two-bedroom fair-market rent",
+    "nullable": true,
+    "source": "HUD optional/manual import",
+    "unit": "Dollars per month",
+    "used_in_signal": true
+  },
+  {
+    "category": "Housing pressure",
+    "column_name": "fmr_to_income_pct",
+    "description": "Estimated two-bedroom fair-market rent as a share of estimated household income.",
+    "display_name": "Fair-market rent to income ratio",
+    "nullable": true,
+    "source": "HUD optional/manual import",
+    "unit": "Percent",
     "used_in_signal": true
   },
   {
@@ -480,24 +480,24 @@
     "used_in_signal": false
   },
   {
-    "category": "Housing pressure",
-    "column_name": "fmr_to_income_pct",
-    "description": "Estimated two-bedroom fair-market rent as a share of estimated household income.",
-    "display_name": "Fair-market rent to income ratio",
+    "category": "Public lending signals",
+    "column_name": "sba_loan_count",
+    "description": "SBA 7(a) or 504 public loan count aggregated to county when imported.",
+    "display_name": "SBA loan count",
     "nullable": true,
-    "source": "HUD optional/manual import",
-    "unit": "Percent",
+    "source": "SBA manual import",
+    "unit": "Count",
     "used_in_signal": true
   },
   {
-    "category": "Housing pressure",
-    "column_name": "two_bedroom_fmr",
-    "description": "HUD two-bedroom fair-market rent when available.",
-    "display_name": "Two-bedroom fair-market rent",
+    "category": "Public lending signals",
+    "column_name": "sba_loan_amount",
+    "description": "SBA 7(a) or 504 public loan dollar amount aggregated to county when imported.",
+    "display_name": "SBA loan amount",
     "nullable": true,
-    "source": "HUD optional/manual import",
-    "unit": "Dollars per month",
-    "used_in_signal": true
+    "source": "SBA manual import",
+    "unit": "Dollars",
+    "used_in_signal": false
   },
   {
     "category": "Derived rates",
