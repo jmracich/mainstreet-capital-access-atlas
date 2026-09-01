@@ -1,28 +1,28 @@
 {
   "files": [
     {
-      "bytes": 2982398,
+      "bytes": 2982257,
       "path": "data/public/counties.csv",
       "row_count": 3235,
-      "sha256": "0e02f18cf96199b5e0aec119b00683a0ca0cd85629acf59b804182c65e775591"
+      "sha256": "7c8589fd5c8d6658174c0acf7d5f33197857707fe818c15109d3e4d71d181d3c"
     },
     {
-      "bytes": 11160997,
+      "bytes": 11161062,
       "path": "data/public/counties.json",
       "record_count": 3235,
-      "sha256": "5b61ef765f881799dc144394e820da622164053b638a3e7b655deca5a413c2e2"
+      "sha256": "6880e2c3b2c43370d9d2611c1f28ad7d0ac0a4fac4cf6ed73770be790b4148eb"
     },
     {
-      "bytes": 22516467,
+      "bytes": 22516409,
       "feature_count": 3109,
       "path": "data/public/county-map.geojson",
-      "sha256": "e041840071d3fa04c0978752d2e08a0d1bcf33cdb86e14e6931948687007cac9"
+      "sha256": "fd8d0f5d791f8758e48676afe7cc4a20f03e1699afa1643d1fb7bff4ed032c2d"
     },
     {
       "bytes": 8626,
       "path": "data/public/source_manifest.json",
       "record_count": 12,
-      "sha256": "60172e1e33f8634bd5076d3ed5e15edaebbea8bfa510eee18bae109f0f07af22"
+      "sha256": "c759334dca2a6347b4e38c435f55f95e5b4f9c2b19ad9518b669112b03312cda"
     },
     {
       "bytes": 19800,
@@ -37,5 +37,5 @@
       "sha256": "5865093d5b5681994694831506209b6afe9f9c355c4ae114ca7f5dc829e8da14"
     }
   ],
-  "generated_at": "2026-08-01T09:57:56Z"
+  "generated_at": "2026-09-01T14:12:35Z"
 }
